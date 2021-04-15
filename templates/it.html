@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+     <style>
+  /* Style the input field */
+  #myInput {
+    padding: 20px;
+    margin-top: -20px;
+    border: 0;
+    border-radius: 0;
+    background: #f1f1f1;
+  }
+
+  </style>
+
 </head>
 
 <body>
@@ -45,8 +57,30 @@
     <br>
     <br>
     
-    <div class="">
+    <div class="row">
+      <div class="col">
       <h1 class="font-weight-bold">IT DEPARTMENT</h1>
+    </div>
+
+    <div class="col-right">
+  <div class="dropdown">
+
+    <button id="1" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Project Domain
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+     
+      <li><a href="#">All</a></li>
+      <li><a href="#">Product Development</a></li>
+      <li><a href="#">Research</a></li>
+      <li><a href="#">Environment Sustainablilty</a></li>
+      
+    </ul>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+</div>
+  </div>
+</div>
+
     </div>
     <hr style="height:3px;border-width:0;background-color:#000">
       <h5 class="font-weight-bold">PRODUCT DEVELOPMENT</h5>
@@ -208,6 +242,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
     <script src="assets/js/script.min.js"></script>
+    <script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $(".dropdown-menu li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
 </body>
 
 </html>
