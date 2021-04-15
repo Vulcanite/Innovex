@@ -4,8 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User, Group
 from django.db import IntegrityError
-import datetime
-from website1.decorators import unauthenticated_user, admin_only
+from website1.decorators import unauthenticated_user
 
 
 # Create your views here.
@@ -13,27 +12,27 @@ def home(request):
     return render(request, "index.html")
 
 
-@login_required(login_url='login')
+#@login_required(login_url='login')
 def itdept(request):
     return render(request, "it.html")
 
 
-@login_required(login_url='login')
+#@login_required(login_url='login')
 def compsdept(request):
     return render(request, "comps.html")
 
 
-@login_required(login_url='login')
+#@login_required(login_url='login')
 def mechdept(request):
     return render(request, "mech.html")
 
 
-@login_required(login_url='login')
+#@login_required(login_url='login')
 def extcdept(request):
     return render(request, "extc.html")
 
 
-@unauthenticated_user
+#@unauthenticated_user
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -49,13 +48,13 @@ def login(request):
     return render(request, 'index.html')
 
 
-@login_required(login_url='login')
+#@login_required(login_url='login')
 def logout(request):
     logout(request)
     return redirect('login')
 
 
-@login_required(login_url='login')
+#@login_required(login_url='login')
 def signup(request):
     if request.method == 'POST':
         user_reg = User.objects.create_user(first_name=request.POST.get('first_name'),
