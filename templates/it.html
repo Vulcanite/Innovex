@@ -12,7 +12,7 @@
      <style>
   /* Style the input field */
   #myInput {
-    padding: 20px;
+    padding: 50px;
     margin-top: -20px;
     border: 0;
     border-radius: 0;
@@ -67,16 +67,47 @@
           <button id="1" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Project Domain
           <span class="caret"></span></button>
           <ul class="dropdown-menu">
-            <li><a href="#">All</a></li>
-            <li><a href="#">Product Development</a></li>
-            <li><a href="#">Research</a></li>
-            <li><a href="#">Environment Sustainablilty</a></li>
+            <li><a id ="d1" href="#"  onclick="filter(document.getElementById('d1').innerHTML);">All</a></li>
+            <li><a id="d2" href="#"   onclick="filter(document.getElementById('d2').innerHTML);">Product Development</a></li>
+            <li><a id="d3" href="#"    onclick="filter(document.getElementById('d3').innerHTML);">Research</a></li>
+            <li><a id="d4" href="#"     onclick="filter(document.getElementById('d4').innerHTML);">Env. Sustainability</a></li>
           </ul>
         </div>
       </div>
     </div>
 
+    <script>
+      function filter(p) {
+
+        l=["Product Development","Research","Env. Sustainability"]
+
+        var i=0;
+
+        for (i = 0; i < l.length; i++) {
+                  document.getElementById(l[i]).style.display="none";
+
+            }
+          
+
+          if(p=="All")
+          {
+              for (i = 0; i < l.length; i++) {
+                  document.getElementById(l[i]).style.display="block";
+
+            }
+
+          }
+          else
+          {
+            document.getElementById(p).style.display="block";
+          }
+
+    }
+
+    </script>
+
 <!-- =============================== category 1======================== -->
+<div id="Product Development">
     <hr style="height:3px;border-width:0;background-color:#000">
       <h5 class="font-weight-bold">PRODUCT DEVELOPMENT</h5>
     <div class="row">
@@ -124,9 +155,9 @@
         </div>
       </div>
     </div>
-
+</div>
 <!-- =============================== category 2======================== -->
-
+<div id="Research">
     <hr style="height:3px;border-width:0;background-color:#000">
       <h5 class="font-weight-bold">RESEARCH BASED</h5>
     <div class="row">
@@ -174,9 +205,9 @@
         </div>
       </div>
     </div>
-
+</div>
 <!-- =============================== category 3======================== -->
-
+<div id="Env. Sustainability">
     <hr style="height:3px;border-width:0;background-color:#000">
       <h5 class="font-weight-bold">ENVIRONMENT SUSTAINABILITY</h5>
     <div class="row">
@@ -227,7 +258,7 @@
 <br>
 <br>
 <br>
-
+</div>
 <!-- ===================================== Footer ======================================== -->
     <footer class="page-footer">
         <div class="container">
