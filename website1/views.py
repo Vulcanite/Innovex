@@ -7,32 +7,22 @@ from django.db import IntegrityError
 from website1.decorators import unauthenticated_user
 
 
-# Create your views here.
-def home(request):
-    return render(request, "index.html")
-
-
-#@login_required(login_url='login')
 def itdept(request):
-    return render(request, "it.html")
+    return render(request, "website1/it.html")
 
 
-#@login_required(login_url='login')
 def compsdept(request):
-    return render(request, "comps.html")
+    return render(request, "website1/comps.html")
 
 
-#@login_required(login_url='login')
 def mechdept(request):
-    return render(request, "mech.html")
+    return render(request, "website1/mech.html")
 
 
-#@login_required(login_url='login')
 def extcdept(request):
-    return render(request, "extc.html")
+    return render(request, "website1/extc.html")
 
 
-#@unauthenticated_user
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -45,7 +35,7 @@ def login(request):
             return redirect('home')
         else:
             messages.info(request, 'Username or Password is incorrect')
-    return render(request, 'index.html')
+    return render(request, 'website1/index.html')
 
 
 #@login_required(login_url='login')
@@ -54,7 +44,6 @@ def logout(request):
     return redirect('login')
 
 
-#@login_required(login_url='login')
 def signup(request):
     if request.method == 'POST':
         user_reg = User.objects.create_user(first_name=request.POST.get('first_name'),
@@ -64,7 +53,7 @@ def signup(request):
             user_reg.save()
             groups = Group.objects.get(name=request.POST.get('access_level'))
             groups.user_set.add(user_reg)
-            return render(request, "index.html")
+            return render(request, "website1/index.html")
         except IntegrityError:
             messages.info(request, "Username already present!!")
-    return render(request, 'index.html')
+    return render(request, 'website1/index.html')
