@@ -22,6 +22,9 @@ def mechdept(request):
 def extcdept(request):
     return render(request, "website1/extc.html")
 
+def dataentry(request):
+    return render(request, "website1/dataentry.html")    
+
 
 def login(request):
     if request.method == 'POST':
