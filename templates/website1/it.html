@@ -199,7 +199,7 @@
     <hr style="height:3px;border-width:0;background-color:#000">
       <h5 class="font-weight-bold">PRODUCT DEVELOPMENT</h5>
     <div class="row">
-      <div class="col-lg-3" data-toggle="modal" data-target="#bd-example-modal-lg">
+      <!-- <div class="col-lg-3" data-toggle="modal" data-target="#bd-example-modal-lg">
         <div class="card mb-3">
           <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
           <div class="card-body">
@@ -241,7 +241,20 @@
             <p class="card-text"><small class="text-muted">Pratik Nerurkar, Calden Rodrigues, John Anand</small></p>
           </div>
         </div>
-      </div>
+      </div> -->
+      <!-- dynamic rendering -->
+      {% for d_pd in datait_pd %}
+      <div class="col-lg-3">
+          <div class="card mb-3" data-toggle="modal" data-target="#proj{{ d_pd.proj_id }}">
+            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{ d_pd.proj_title }}</h5>
+              <!-- <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p> -->
+              <p class="card-text"><small class="text-muted">{{ d_pd.mem1_name }} | {{ d_pd.mem2_name }} | {{ d_pd.mem3_name }}</small></p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
     </div>
 </div>
 <!-- =============================== category 2======================== -->
@@ -249,7 +262,7 @@
     <hr style="height:3px;border-width:0;background-color:#000">
       <h5 class="font-weight-bold">RESEARCH BASED</h5>
     <div class="row">
-      <div class="col-lg-3">
+      <!-- <div class="col-lg-3">
         <div class="card mb-3">
           <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
           <div class="card-body">
@@ -291,7 +304,20 @@
             <p class="card-text"><small class="text-muted">Pratik Nerurkar, Calden Rodrigues, John Anand</small></p>
           </div>
         </div>
-      </div>
+      </div> -->
+      <!-- dynamic rendering -->
+      {% for d_rb in datait_rb %}
+      <div class="col-lg-3">
+          <div class="card mb-3" data-toggle="modal" data-target="#proj{{ d_rb.proj_id }}">
+            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{ d_rb.proj_title }}</h5>
+              <!-- <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p> -->
+              <p class="card-text"><small class="text-muted">{{ d_rb.mem1_name }} | {{ d_rb.mem2_name }} | {{ d_rb.mem3_name }}</small></p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
     </div>
 </div>
 <!-- =============================== category 3======================== -->
@@ -299,7 +325,7 @@
     <hr style="height:3px;border-width:0;background-color:#000">
       <h5 class="font-weight-bold">ENVIRONMENT SUSTAINABILITY</h5>
     <div class="row">
-      <div class="col-lg-3">
+      <!-- <div class="col-lg-3">
         <div class="card mb-3">
           <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
           <div class="card-body">
@@ -341,7 +367,20 @@
             <p class="card-text"><small class="text-muted">Pratik Nerurkar, Calden Rodrigues, John Anand</small></p>
           </div>
         </div>
-      </div>
+      </div> -->
+      <!-- dynamic rendering -->
+      {% for d_env in datait_env %}
+      <div class="col-lg-3">
+          <div class="card mb-3" data-toggle="modal" data-target="#proj{{ d_env.proj_id }}">
+            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{ d_env.proj_title }}</h5>
+              <!-- <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p> -->
+              <p class="card-text"><small class="text-muted">{{ d_env.mem1_name }} | {{ d_env.mem2_name }} | {{ d_env.mem3_name }}</small></p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
     </div>
 <br>
 <br>
@@ -351,7 +390,8 @@
 
 
 <!-- ========================================== Pop 1 =========================================== -->
-  <div class="modal fade bd-example-modal-lg" id="bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  {% for d in datait %}
+  <div class="modal fade bd-example-modal-lg" id="proj{{ d.proj_id }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <!-- modal content goes here -->
@@ -359,19 +399,15 @@
           <div class="row">
             <div class="col-lg-5">
               <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{d.youtube_link}}"></iframe>
               </div>
             </div>
             
             <div class="col-lg-7">
-              <center><h5 class="card-title">Single Image Super Resolution</h5></center>
-              <p class="card-text1"><strong class="text bg-primary text-white">&nbsp;RESEARCH BASED&nbsp;</strong></p>
-              <p class="card-text"><strong class="text-muted"><i class="bi bi-linkedin"></i>&nbsp;Chaitanyakrishna &nbsp;|&nbsp; Kyle Lobo &nbsp;| &nbsp;Rohan James </strong></p>
-              <p class="card-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                  quae. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam,
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+              <center><h5 class="card-title">{{ d.proj_title }}</h5></center>
+              <p class="card-text1"><strong class="text bg-primary text-white">&nbsp;{{ d.proj_category }}&nbsp;</strong></p>
+              <p class="card-text"><strong class="text-muted"><i class="fa fa-linkedin-square"></i>&nbsp;<a href="{{d.mem1_linkedin}}" target="_blank">{{ d.mem1_name }}</a> &nbsp;|&nbsp; <a href="{{d.mem2_linkedin}}" target="_blank">{{ d.mem2_name }}</a> &nbsp;| &nbsp;<a href="{{d.mem3_linkedin}}" target="_blank">{{ d.mem3_name }}</a> </strong></p>
+              <p class="card-text">{{ d.proj_description }}
               </p>
               <div class="row">&nbsp;&nbsp;&nbsp;&nbsp;
               <button type="button" class="btn btn-dark btn-sm col-5">Technical aspects</button>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -440,6 +476,7 @@
       </div>
     </div>
   </div>
+  {% endfor %}
 
 
 <!-- ===================================== Footer ======================================== -->

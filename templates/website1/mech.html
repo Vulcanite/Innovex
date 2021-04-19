@@ -103,11 +103,10 @@
 
 <!-- =============================== category 1======================== -->
 <div id="Product Development">
-
     <hr style="height:3px;border-width:0;background-color:#000">
       <h5 class="font-weight-bold">PRODUCT DEVELOPMENT</h5>
     <div class="row">
-      <div class="col-lg-3" data-toggle="modal" data-target="#bd-example-modal-lg">
+      <!-- <div class="col-lg-3" data-toggle="modal" data-target="#bd-example-modal-lg">
         <div class="card mb-3">
           <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
           <div class="card-body">
@@ -149,18 +148,28 @@
             <p class="card-text"><small class="text-muted">Pratik Nerurkar, Calden Rodrigues, John Anand</small></p>
           </div>
         </div>
-      </div>
+      </div> -->
+      <!-- dynamic rendering -->
+      {% for d_pd in datamech_pd %}
+      <div class="col-lg-3">
+          <div class="card mb-3" data-toggle="modal" data-target="#proj{{ d_pd.proj_id }}">
+            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{ d_pd.proj_title }}</h5>
+              <!-- <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p> -->
+              <p class="card-text"><small class="text-muted">{{ d_pd.mem1_name }} | {{ d_pd.mem2_name }} | {{ d_pd.mem3_name }}</small></p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
     </div>
-
 </div>
 <!-- =============================== category 2======================== -->
-
 <div id="Research">
-
     <hr style="height:3px;border-width:0;background-color:#000">
       <h5 class="font-weight-bold">RESEARCH BASED</h5>
     <div class="row">
-      <div class="col-lg-3">
+      <!-- <div class="col-lg-3">
         <div class="card mb-3">
           <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
           <div class="card-body">
@@ -202,17 +211,28 @@
             <p class="card-text"><small class="text-muted">Pratik Nerurkar, Calden Rodrigues, John Anand</small></p>
           </div>
         </div>
-      </div>
+      </div> -->
+      <!-- dynamic rendering -->
+      {% for d_rb in datamech_rb %}
+      <div class="col-lg-3">
+          <div class="card mb-3" data-toggle="modal" data-target="#proj{{ d_rb.proj_id }}">
+            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{ d_rb.proj_title }}</h5>
+              <!-- <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p> -->
+              <p class="card-text"><small class="text-muted">{{ d_rb.mem1_name }} | {{ d_rb.mem2_name }} | {{ d_rb.mem3_name }}</small></p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
     </div>
 </div>
 <!-- =============================== category 3======================== -->
-
 <div id="Env. Sustainability">
-
     <hr style="height:3px;border-width:0;background-color:#000">
       <h5 class="font-weight-bold">ENVIRONMENT SUSTAINABILITY</h5>
     <div class="row">
-      <div class="col-lg-3">
+      <!-- <div class="col-lg-3">
         <div class="card mb-3">
           <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
           <div class="card-body">
@@ -254,7 +274,20 @@
             <p class="card-text"><small class="text-muted">Pratik Nerurkar, Calden Rodrigues, John Anand</small></p>
           </div>
         </div>
-      </div>
+      </div> -->
+      <!-- dynamic rendering -->
+      {% for d_env in datamech_env %}
+      <div class="col-lg-3">
+          <div class="card mb-3" data-toggle="modal" data-target="#proj{{ d_env.proj_id }}">
+            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{ d_env.proj_title }}</h5>
+              <!-- <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p> -->
+              <p class="card-text"><small class="text-muted">{{ d_env.mem1_name }} | {{ d_env.mem2_name }} | {{ d_env.mem3_name }}</small></p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
     </div>
 <br>
 <br>
@@ -262,8 +295,10 @@
 </div>
 
 
+
 <!-- ========================================== Pop 1 =========================================== -->
-  <div class="modal fade bd-example-modal-lg" id="bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  {% for d in datamech %}
+  <div class="modal fade bd-example-modal-lg" id="proj{{ d.proj_id }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <!-- modal content goes here -->
@@ -271,29 +306,84 @@
           <div class="row">
             <div class="col-lg-5">
               <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{d.youtube_link}}"></iframe>
               </div>
             </div>
             
             <div class="col-lg-7">
-              <center><h5 class="card-title">Single Image Super Resolution</h5></center>
-              <p class="card-text1"><strong class="text bg-primary text-white">&nbsp;RESEARCH BASED&nbsp;</strong></p>
-              <p class="card-text"><strong class="text-muted"><i class="bi bi-linkedin"></i>&nbsp;Chaitanyakrishna &nbsp;|&nbsp; Kyle Lobo &nbsp;| &nbsp;Rohan James </strong></p>
-              <p class="card-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                  quae. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam,
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+              <center><h5 class="card-title">{{ d.proj_title }}</h5></center>
+              <p class="card-text1"><strong class="text bg-primary text-white">&nbsp;{{ d.proj_category }}&nbsp;</strong></p>
+              <p class="card-text"><strong class="text-muted"><i class="fa fa-linkedin-square"></i>&nbsp;<a href="{{d.mem1_linkedin}}" target="_blank">{{ d.mem1_name }}</a> &nbsp;|&nbsp; <a href="{{d.mem2_linkedin}}" target="_blank">{{ d.mem2_name }}</a> &nbsp;| &nbsp;<a href="{{d.mem3_linkedin}}" target="_blank">{{ d.mem3_name }}</a> </strong></p>
+              <p class="card-text">{{ d.proj_description }}
               </p>
-              <button type="button" class="btn btn-dark btn-sm">Technical aspects</button>&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="button" class="btn btn-primary btn-sm">Give your feedback</button>
+              <div class="row">&nbsp;&nbsp;&nbsp;&nbsp;
+              <button type="button" class="btn btn-dark btn-sm col-5">Technical aspects</button>&nbsp;&nbsp;&nbsp;&nbsp;
+              <button type="button" class="btn btn-primary btn-sm col-5" data-toggle="collapse" data-target="#demo">Give your feedback</button></div>
             </div>
           </div>
-        </div>
+
+          <!-- feedback accordion -->
+          <br>
+          <div id="demo" class="collapse" style="background-color: #e0ebeb">
+            <center><h2>Feedback</h2></center>
+            <br>
+            <br>
+            <form>
+              <div class="row">
+                <div class="col-lg-4">
+                  <center><h4>Quality of project</h4></center>
+                  <!-- col 1 -->
+                  <input class="star star-5" id="star-5" type="radio" name="star" /> <label class="star star-5" for="star-5"></label>
+                  <input class="star star-4" id="star-4" type="radio" name="star" /> <label class="star star-4" for="star-4"></label>
+                  <input class="star star-3" id="star-3" type="radio" name="star" /> <label class="star star-3" for="star-3"></label>
+                  <input class="star star-2" id="star-2" type="radio" name="star" /> <label class="star star-2" for="star-2"></label>
+                  <input class="star star-1" id="star-1" type="radio" name="star" /> <label class="star star-1" for="star-1"></label>
+
+                  <center><h4>Level of Innovation and Design</h4></center>
+                  <!-- col 1 -->
+                  <input class="star1 star-10" id="star-10" type="radio" name="star1" /> <label class="star1 star-10" for="star-10"></label>
+                  <input class="star1 star-9" id="star-9" type="radio" name="star1" /> <label class="star1 star-9" for="star-9"></label>
+                  <input class="star1 star-8" id="star-8" type="radio" name="star1" /> <label class="star1 star-8" for="star-8"></label>
+                  <input class="star1 star-7" id="star-7" type="radio" name="star1" /> <label class="star1 star-7" for="star-7"></label>
+                  <input class="star1 star-6" id="star-6" type="radio" name="star1" /> <label class="star1 star-6" for="star-6"></label>
+                </div>
+                <div class="col-lg-8">
+                  <!-- col 2 -->
+                  <h4><center>Can the project be patented/converted into a product?</center></h4>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
+                    <label class="form-check-label" for="exampleRadios1">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                      No
+                    </label>
+                  </div>
+
+                  <br>
+                  <h4><center>Your comments</center></h4>
+                  <div class="form-group" style="padding: 10px;">
+                    <textarea  class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+                </div>
+              </div>
       
+              <center><button type="submit" class="btn btn-primary">Submit</button></center>
+              <br>
+
+            </form>
+          </div>
+          <!-- feedback end -->
+
+        </div>
+        <!-- modal content end -->
       </div>
     </div>
   </div>
+  {% endfor %}
 
 <!-- ===================================== Footer ======================================== -->
 
