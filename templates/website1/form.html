@@ -5,6 +5,9 @@
 
 <form method="POST">
 	{% csrf_token %}
+
+	{{ registration_form.full_name.label }}
+
 	{% for field in registration_form %}
 	<p>
 		{{field.label_tag}}

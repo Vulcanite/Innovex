@@ -138,4 +138,4 @@ def registration_view(request):
     else:
         form = RegistrationForm()
         context['registration_form'] = form
-    return render(request, 'website1/form.html', context)
+    return render(request, 'index.html', context)
