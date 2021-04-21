@@ -6,6 +6,7 @@ from django.contrib.auth.models import User, Group
 from django.db import IntegrityError
 from website1.decorators import unauthenticated_user
 from website1.models import Project
+from website1.forms import RegistrationForm, AccountAuthentication
 
 def itdept(request):
     datait=Project.objects.filter(dept='it')
@@ -91,18 +92,27 @@ def dataentry(request):
 
 
 def login(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+    context = {}
 
-        user = authenticate(request, username=username, password=password)
+    user = request.user
+    if user.is_authenticated:
+        return redirect("home")
+    if request.POST:
+        form = AccountAuthentication(request.POST)
+        if form.is_valid():
+            email = request.POST['email']
+            password = request.POST['password']
+            user= authenticate(email = email, password=password)
 
-        if user is not None:
+        if user:
             login(request, user)
-            return redirect('home')
-        else:
-            messages.info(request, 'Username or Password is incorrect')
-    return render(request, 'website1/index.html')
+            return redirect("itdept")
+    else:
+        form = AccountAuthentication()
+    context['form'] = form
+
+    return render(request, 'website1/login.html', context)
+
 
 
 #@login_required(login_url='login')
@@ -111,16 +121,21 @@ def logout(request):
     return redirect('login')
 
 
-def signup(request):
-    if request.method == 'POST':
-        user_reg = User.objects.create_user(first_name=request.POST.get('first_name'),
-                                            password=request.POST.get('password1'),
-                                            username=request.POST.get('username'))
-        try:
-            user_reg.save()
-            groups = Group.objects.get(name=request.POST.get('access_level'))
-            groups.user_set.add(user_reg)
-            return render(request, "website1/index.html")
-        except IntegrityError:
-            messages.info(request, "Username already present!!")
-    return render(request, 'website1/index.html')
+def registration_view(request):
+    context = {}
+    if request.POST:
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            email = form.cleaned_data.get('email')
+            raw_password = form.cleaned_data.get('password1')
+            account =  authenticate(email, password = raw_password)
+            login(request, account)
+            return redirect('itdept')
+        else:
+            context['registration_form'] = form
+
+    else:
+        form = RegistrationForm()
+        context['registration_form'] = form
+    return render(request, 'website1/form.html', context)
