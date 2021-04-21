@@ -109,7 +109,7 @@ def signin(request):
             return redirect("itdept")
     else:
         form = AccountAuthentication()
-    context['form'] = form
+    context['login_form'] = form
 
     return render(request, 'website1/login.html', context)
 
@@ -138,4 +138,4 @@ def registration_view(request):
     else:
         form = RegistrationForm()
         context['registration_form'] = form
-    return render(request, 'index.html', context)
+    return render(request, 'website1/form.html', context)
