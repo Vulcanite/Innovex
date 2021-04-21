@@ -48,9 +48,10 @@ class AccountManager(BaseUserManager):
         return user
 
 class Account(AbstractBaseUser):
+    # user_id = models.AutoField(primary_key=True)
     email =  models.EmailField(verbose_name="email", max_length=60, unique=True)
     full_name = models.CharField(max_length=100, unique=True)
-    org_name = models.CharField(max_length=100)
+    organisation_name = models.CharField(max_length=100)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username',]

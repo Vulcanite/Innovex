@@ -91,7 +91,7 @@ def dataentry(request):
     return render(request, "website1/dataentry.html")    
 
 
-def login(request):
+def signin(request):
     context = {}
 
     user = request.user

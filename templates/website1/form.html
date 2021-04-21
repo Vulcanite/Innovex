@@ -1,3 +1,4 @@
+{% extends "website1/base.html" %}
 {% block content %}
 
 <h2>Register</h2>
@@ -9,9 +10,9 @@
 		{{field.label_tag}}
 		{{field}}
 
-		{% if field.help_text %}
+		<!-- {% if field.help_text %}
 			<small style="color: grey;">{{field.help_text}}</small>
-		{% endif %}
+		{% endif %} -->
 
 		{% for error in field.errors %}
 			<p style="color: red;">{{error}}</p>
