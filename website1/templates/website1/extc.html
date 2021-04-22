@@ -4,13 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>COMPS DEPT</title>
+    <title>EXTC DEPT</title>
     <link rel="stylesheet" href="https://dl.dropbox.com/s/i4cfbnhzpssw4pr/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
     <style>
     /* Style the input field */
@@ -21,12 +22,14 @@
       border-radius: 0;
       background: #f1f1f1;
     } 
-     @media screen and (min-width: 676px) {
+
+    @media screen and (min-width: 676px) {
         .modal-dialog  {
           max-width: 1000px; /* New width for default modal */
         }
     }
     </style>
+
 </head>
 
 <body>
@@ -50,8 +53,8 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link " href="/">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="itdept">IT</a></li>
-                    <li class="nav-item"><a class="nav-link active" style="border-bottom: 5px solid #000;" href="compsdept">COMPS</a></li>
-                    <li class="nav-item"><a class="nav-link" href="extcdept">EXTC</a></li>
+                    <li class="nav-item"><a class="nav-link" href="compsdept">COMPS</a></li>
+                    <li class="nav-item"><a class="nav-link active" style="border-bottom: 5px solid #000;" href="extcdept">EXTC</a></li>
                     <li class="nav-item"><a class="nav-link" href="mechdept">MECH</a></li>
                     <!-- <li class="nav-item"><a class="btn btn-dark" role="button" href="#">Login</a></li> -->
 
@@ -64,9 +67,9 @@
     <br>
     
 
-   <div class="row">
+    <div class="row">
       <div class="col-md">
-        <h1 class="font-weight-bold">COMPUTER DEPARTMENT</h1>
+        <h1 class="font-weight-bold">EXTC DEPARTMENT</h1>
       </div>
 
       <div class="col-md-2" style="padding-right: 30px;padding-top: 10px;  ">
@@ -152,7 +155,7 @@
         </div>
       </div> -->
       <!-- dynamic rendering -->
-      {% for d_pd in datacomps_pd %}
+      {% for d_pd in dataextc_pd %}
       <div class="col-lg-3">
           <div class="card mb-3" data-toggle="modal" data-target="#proj{{ d_pd.proj_id }}">
             <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
@@ -215,7 +218,7 @@
         </div>
       </div> -->
       <!-- dynamic rendering -->
-      {% for d_rb in datacomps_rb %}
+      {% for d_rb in dataextc_rb %}
       <div class="col-lg-3">
           <div class="card mb-3" data-toggle="modal" data-target="#proj{{ d_rb.proj_id }}">
             <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
@@ -278,7 +281,7 @@
         </div>
       </div> -->
       <!-- dynamic rendering -->
-      {% for d_env in datacomps_env %}
+      {% for d_env in dataextc_env %}
       <div class="col-lg-3">
           <div class="card mb-3" data-toggle="modal" data-target="#proj{{ d_env.proj_id }}">
             <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
@@ -299,7 +302,7 @@
 
 
 <!-- ========================================== Pop 1 =========================================== -->
-  {% for d in datacomps %}
+  {% for d in dataextc %}
   <div class="modal fade bd-example-modal-lg" id="proj{{ d.proj_id }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -308,7 +311,7 @@
           <div class="row">
             <div class="col-lg-5">
               <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{d.youtube_link}}"></iframe>
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{d.youtube_link}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
             </div>
             
@@ -390,6 +393,7 @@
 
   <!-- ===================================== Footer ======================================== -->
 
+</div>
     <footer class="page-footer">
         <div class="container">
             <div class="links"><a href="#">About me</a><a href="#">Contact me</a><a href="#">Projects</a></div>

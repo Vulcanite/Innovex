@@ -1,3 +1,4 @@
+{% load socialaccount %}
 <!DOCTYPE html>
 <html>
 
@@ -34,12 +35,29 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link active" style="border-bottom: 5px solid #000;" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="2021/itdept">IT</a></li>
-                    <li class="nav-item"><a class="nav-link" href="2021/compsdept">COMPS</a></li>
-                    <li class="nav-item"><a class="nav-link" href="2021/extcdept">EXTC</a></li>
-                    <li class="nav-item"><a class="nav-link" href="2021/mechdept">MECH</a></li>
-                    <li class="nav-item"><a class="btn btn-dark" role="button"  href="http://127.0.0.1:8000/2021/signup">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="itdept">IT</a></li>
+                    <li class="nav-item"><a class="nav-link" href="compsdept">COMPS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="extcdept">EXTC</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mechdept">MECH</a></li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                         {{ user.username }}
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/logout" >Logout</a></li>
+                      </ul>
+                    </li>
+                    {% else %}
+                      <li class="nav-item"><a class="btn btn-dark" role="button"  href="{% provider_login_url 'google' %}?next=/editdata">Login</a></li>
+                    {% endif %}
 
+                    <!-- {% if user.is_authenticated %}
+                      <li class="nav-item"><p>Hello, {{ user.username }}</p></li>
+                    {% else %}
+                      <li class="nav-item"><a class="btn btn-dark" role="button"  href="{% provider_login_url 'google' %}">Login</a></li>
+                      
+                    {% endif %} -->
                 </ul>
             </div>
         </div>

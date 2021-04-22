@@ -6,8 +6,23 @@ from django.contrib.auth.models import User, Group
 from django.db import IntegrityError
 from website1.decorators import unauthenticated_user
 from website1.models import Project
-from website1.forms import RegistrationForm, AccountAuthentication
+from website1.models import UserModel
 
+phn=0
+org=""
+
+def home(request):
+    global x
+    global y
+
+
+
+    #add in if to add only unique email:  not UserModel.objects.filter(user_email=request.user.email).exists()
+    if request.user.is_authenticated and not UserModel.objects.filter(user_email=request.user.email).exists():
+        UserModel.objects.create(organisation=org, user_phone=phn ,user_name=request.user.username, user_email=request.user.email)
+    return render(request, "website1/index.html")
+
+@login_required(login_url='/')
 def itdept(request):
     datait=Project.objects.filter(dept='it')
     datait_rb=Project.objects.filter(dept='it').filter(proj_category='RESEARCH BASED')
@@ -27,7 +42,7 @@ def itdept(request):
     }
     return render(request, "website1/it.html",context)
 
-
+@login_required(login_url='/')
 def compsdept(request):
     datacomps=Project.objects.filter(dept='comps')
     datacomps_rb=Project.objects.filter(dept='comps').filter(proj_category='RESEARCH BASED')
@@ -47,7 +62,7 @@ def compsdept(request):
     }
     return render(request, "website1/comps.html",context)
 
-
+@login_required(login_url='/')
 def mechdept(request):
     datamech=Project.objects.filter(dept='mech')
     datamech_rb=Project.objects.filter(dept='mech').filter(proj_category='RESEARCH BASED')
@@ -67,7 +82,7 @@ def mechdept(request):
     }
     return render(request, "website1/mech.html",context)
 
-
+@login_required(login_url='/')
 def extcdept(request):
     dataextc=Project.objects.filter(dept='extc')
     dataextc_rb=Project.objects.filter(dept='extc').filter(proj_category='RESEARCH BASED')
@@ -90,30 +105,20 @@ def extcdept(request):
 def dataentry(request):
     return render(request, "website1/dataentry.html")    
 
+def edit_data(request):
+    global phn
+    global org
 
-def signin(request):
-    context = {}
-
-    user = request.user
-    if user.is_authenticated:
-        return redirect("home")
-    if request.POST:
-        form = AccountAuthentication(request.POST)
-        if form.is_valid():
-            email = request.POST['email']
-            password = request.POST['password']
-            user= authenticate(email = email, password=password)
-
-        if user:
-            login(request, user)
-            return redirect("itdept")
-    else:
-        form = AccountAuthentication()
-    context['login_form'] = form
-
-    return render(request, 'website1/login.html', context)
-
-
+    if UserModel.objects.filter(user_email=request.user.email).exists():
+        return redirect("/")
+    elif request.method=="POST":
+        phn_no = request.POST.get("mobile")
+        org_name = request.POST.get("org")
+        print(phn,org_name,"thisss issssssssssss ")
+        phn=phn_no
+        org=org_name
+        return redirect("/")
+    return render(request, "website1/form.html") 
 
 #@login_required(login_url='login')
 def logout(request):
@@ -121,21 +126,3 @@ def logout(request):
     return redirect('login')
 
 
-def registration_view(request):
-    context = {}
-    if request.POST:
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            email = form.cleaned_data.get('email')
-            raw_password = form.cleaned_data.get('password1')
-            account =  authenticate(email, password = raw_password)
-            login(request, account)
-            return redirect('itdept')
-        else:
-            context['registration_form'] = form
-
-    else:
-        form = RegistrationForm()
-        context['registration_form'] = form
-    return render(request, 'website1/form.html', context)
