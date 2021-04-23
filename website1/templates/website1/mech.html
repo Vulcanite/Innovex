@@ -5,6 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>MECH DEPT</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZKS4J96H6V"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-ZKS4J96H6V');
+    </script>
     <link rel="stylesheet" href="https://dl.dropbox.com/s/i4cfbnhzpssw4pr/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
@@ -304,69 +313,61 @@
         <!-- modal content goes here -->
         <div class="container" style="padding: 10px;">
           <div class="row">
-            <div class="col-lg-5">
+            <div class="col-lg-7">
               <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{d.youtube_link}}"></iframe>
+                {% if d.youtube_link == 0 %}
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{d.youtube_link|slice:'17:'}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                {% else %}
+                <iframe class="embed-responsive-item" src="{{d.drive_link|slice:':66'}}preview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                {% endif %}
               </div>
             </div>
             
-            <div class="col-lg-7">
-              <center><h5 class="card-title">{{ d.proj_title }}</h5></center>
-              <p class="card-text1"><strong class="text bg-primary text-white">&nbsp;{{ d.proj_category }}&nbsp;</strong></p>
+            <div class="col-lg-5">
+              <center><h3 class="card-title">{{ d.proj_title }}</h3></center>
+              <p style="font-size: 15px;" class="card-text1"><strong class="text bg-primary text-white">&nbsp;{{ d.proj_category }}&nbsp;</strong></p>
               <p class="card-text"><strong class="text-muted"><i class="fa fa-linkedin-square"></i>&nbsp;<a href="{{d.mem1_linkedin}}" target="_blank">{{ d.mem1_name }}</a> &nbsp;|&nbsp; <a href="{{d.mem2_linkedin}}" target="_blank">{{ d.mem2_name }}</a> &nbsp;| &nbsp;<a href="{{d.mem3_linkedin}}" target="_blank">{{ d.mem3_name }}</a> </strong></p>
               <p class="card-text">{{ d.proj_description }}
               </p>
               <div class="row">&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="button" class="btn btn-dark btn-sm col-5">Technical aspects</button>&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="button" class="btn btn-primary btn-sm col-5" data-toggle="collapse" data-target="#demo">Give your feedback</button></div>
+                <button type="button" class="btn btn-dark btn-sm col-6">Technical aspects</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <!-- <button type="button" class="btn btn-primary btn-sm col-5" data-toggle="collapse" data-target="#demo">Give your feedback</button> -->
+              </div>
             </div>
           </div>
 
-          <!-- feedback accordion -->
+          <!-- feedback section -->
           <br>
-          <div id="demo" class="collapse" style="background-color: #e0ebeb">
-            <center><h2>Feedback</h2></center>
+          <div id="demo"  style="background-color: #e0ebeb">
             <br>
+            <center><h3>Feedback</h3></center>
             <br>
-            <form>
+            <form method="post"> {% csrf_token %}
+              <input type="hidden" name="for_proj" value="{{d.proj_title}}" >
               <div class="row">
-                <div class="col-lg-4">
-                  <center><h4>Quality of project</h4></center>
-                  <!-- col 1 -->
-                  <input class="star star-5" id="star-5" type="radio" name="star" /> <label class="star star-5" for="star-5"></label>
-                  <input class="star star-4" id="star-4" type="radio" name="star" /> <label class="star star-4" for="star-4"></label>
-                  <input class="star star-3" id="star-3" type="radio" name="star" /> <label class="star star-3" for="star-3"></label>
-                  <input class="star star-2" id="star-2" type="radio" name="star" /> <label class="star star-2" for="star-2"></label>
-                  <input class="star star-1" id="star-1" type="radio" name="star" /> <label class="star star-1" for="star-1"></label>
-
-                  <center><h4>Level of Innovation and Design</h4></center>
-                  <!-- col 1 -->
-                  <input class="star1 star-10" id="star-10" type="radio" name="star1" /> <label class="star1 star-10" for="star-10"></label>
-                  <input class="star1 star-9" id="star-9" type="radio" name="star1" /> <label class="star1 star-9" for="star-9"></label>
-                  <input class="star1 star-8" id="star-8" type="radio" name="star1" /> <label class="star1 star-8" for="star-8"></label>
-                  <input class="star1 star-7" id="star-7" type="radio" name="star1" /> <label class="star1 star-7" for="star-7"></label>
-                  <input class="star1 star-6" id="star-6" type="radio" name="star1" /> <label class="star1 star-6" for="star-6"></label>
+                <div class="col-lg-5">
+                  <center><h5>What is your overall rating for the project: </h5></center>
                 </div>
-                <div class="col-lg-8">
-                  <!-- col 2 -->
-                  <h4><center>Can the project be patented/converted into a product?</center></h4>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
-                    <label class="form-check-label" for="exampleRadios1">
-                      Yes
-                    </label>
+                <div class="col-lg-7">
+                  <div class="form-group" style="padding-right:10px;padding-left:10px; " >
+                    <select class="form-control" id="exampleFormControlSelect1" name="rating"  >
+                      <option value="1">Poor</option>
+                      <option value="2">Average</option>
+                      <option value="3">Good</option>
+                      <option value="4">Very good</option>
+                      <option value="5">Excellent</option>
+                    </select>
                   </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                      No
-                    </label>
-                  </div>
+                </div>
+              </div>
 
-                  <br>
-                  <h4><center>Your comments</center></h4>
+              <div class="row">
+                <div class="col-lg-5">
+                  <center><h5>Your comments: </h5></center>
+                </div>
+                <div class="col-lg-7 ">
                   <div class="form-group" style="padding: 10px;">
-                    <textarea  class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea  class="form-control" id="exampleFormControlTextarea1" rows="3" name="comments"></textarea>
                   </div>
                 </div>
               </div>

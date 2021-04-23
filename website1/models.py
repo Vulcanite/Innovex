@@ -30,9 +30,13 @@ class Project(models.Model):
     mem1_linkedin    = models.CharField(max_length=100)
     mem2_linkedin    = models.CharField(max_length=100)
     mem3_linkedin    = models.CharField(max_length=100)
-    youtube_link     = models.CharField(max_length=11)
+    youtube_link     = models.CharField(max_length=100, default="0")
+    drive_link       = models.CharField(max_length=100, default="0")
     proj_description = models.TextField()
     tech_aspects     = models.CharField(max_length=100, default="img.jpg")
+
+    def __str__(self):
+        return str(self.proj_title)
 
 
 class UserModel(models.Model):
@@ -43,6 +47,17 @@ class UserModel(models.Model):
     user_phone       = models.IntegerField()
     organisation     = models.CharField(max_length=100)
 
+    def __str__(self):
+        return str(self.user_name)
 
+
+class Feedback(models.Model):
+    rating        = models.IntegerField()
+    user_feedback = models.TextField()
+    project_f     = models.ForeignKey(Project, on_delete=models.CASCADE)
+    user_f        = models.ForeignKey(UserModel, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.project_f)
     
 

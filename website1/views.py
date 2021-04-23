@@ -7,6 +7,7 @@ from django.db import IntegrityError
 from website1.decorators import unauthenticated_user
 from website1.models import Project
 from website1.models import UserModel
+from website1.models import Feedback
 
 phn=0
 org=""
@@ -40,6 +41,15 @@ def itdept(request):
     'datait_pd':datait_pd,
     'datait_env':datait_env
     }
+
+    if request.method=="POST":
+        rating = int(request.POST.get("rating"))
+        cmts = request.POST.get("comments")
+        feedb_for_name = request.POST.get("for_proj") 
+        # print(rating,cmts,feedb_for_name,request.user, "thisss issssssssssss ")
+        Feedback.objects.create(rating=rating, user_feedback=cmts ,project_f=Project.objects.get(proj_title=feedb_for_name), user_f=UserModel.objects.get(user_email=request.user.email))
+
+
     return render(request, "website1/it.html",context)
 
 @login_required(login_url='/')
@@ -114,13 +124,13 @@ def edit_data(request):
     elif request.method=="POST":
         phn_no = request.POST.get("mobile")
         org_name = request.POST.get("org")
-        print(phn,org_name,"thisss issssssssssss ")
+        # print(phn,org_name,"thisss issssssssssss ")
         phn=phn_no
         org=org_name
         return redirect("/")
     return render(request, "website1/form.html") 
 
-#@login_required(login_url='login')
+@login_required(login_url='login')
 def logout(request):
     logout(request)
     return redirect('login')
