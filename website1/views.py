@@ -11,16 +11,14 @@ from website1.models import Feedback
 
 phn=0
 org=""
+role=""
 
 def home(request):
-    global x
-    global y
-
-
+    
 
     #add in if to add only unique email:  not UserModel.objects.filter(user_email=request.user.email).exists()
     if request.user.is_authenticated and not UserModel.objects.filter(user_email=request.user.email).exists():
-        UserModel.objects.create(organisation=org, user_phone=phn ,user_name=request.user.username, user_email=request.user.email)
+        UserModel.objects.create(organisation=org, user_phone=phn ,user_designation=role, user_name=request.user.username, user_email=request.user.email)
     return render(request, "website1/index.html")
 
 @login_required(login_url='/')
@@ -47,7 +45,7 @@ def itdept(request):
         cmts = request.POST.get("comments")
         feedb_for_name = request.POST.get("for_proj") 
         # print(rating,cmts,feedb_for_name,request.user, "thisss issssssssssss ")
-        Feedback.objects.create(rating=rating, user_feedback=cmts ,project_f=Project.objects.get(proj_title=feedb_for_name), user_f=UserModel.objects.get(user_email=request.user.email))
+        Feedback.objects.create(rating=rating, user_feedback=cmts , project_dept=Project.objects.get(proj_title=feedb_for_name).dept , project_f=Project.objects.get(proj_title=feedb_for_name), user_f=UserModel.objects.get(user_email=request.user.email))
 
 
     return render(request, "website1/it.html",context)
@@ -70,6 +68,15 @@ def compsdept(request):
     'datacomps_pd':datacomps_pd,
     'datacomps_env':datacomps_env
     }
+
+    if request.method=="POST":
+        rating = int(request.POST.get("rating"))
+        cmts = request.POST.get("comments")
+        feedb_for_name = request.POST.get("for_proj") 
+        # print(rating,cmts,feedb_for_name,request.user, "thisss issssssssssss ")
+        print(Project.objects.get(proj_title=feedb_for_name).dept,'thiss issssssssssss')
+        Feedback.objects.create(rating=rating, user_feedback=cmts , project_dept=Project.objects.get(proj_title=feedb_for_name).dept , project_f=Project.objects.get(proj_title=feedb_for_name), user_f=UserModel.objects.get(user_email=request.user.email))
+
     return render(request, "website1/comps.html",context)
 
 @login_required(login_url='/')
@@ -90,6 +97,15 @@ def mechdept(request):
     'datamech_pd':datamech_pd,
     'datamech_env':datamech_env
     }
+
+    if request.method=="POST":
+        rating = int(request.POST.get("rating"))
+        cmts = request.POST.get("comments")
+        feedb_for_name = request.POST.get("for_proj") 
+        # print(rating,cmts,feedb_for_name,request.user, "thisss issssssssssss ")
+        print(Project.objects.get(proj_title=feedb_for_name).dept,'thiss issssssssssss')
+        Feedback.objects.create(rating=rating, user_feedback=cmts , project_dept=Project.objects.get(proj_title=feedb_for_name).dept , project_f=Project.objects.get(proj_title=feedb_for_name), user_f=UserModel.objects.get(user_email=request.user.email))
+
     return render(request, "website1/mech.html",context)
 
 @login_required(login_url='/')
@@ -110,6 +126,15 @@ def extcdept(request):
     'dataextc_pd':dataextc_pd,
     'dataextc_env':dataextc_env
     }
+
+    if request.method=="POST":
+        rating = int(request.POST.get("rating"))
+        cmts = request.POST.get("comments")
+        feedb_for_name = request.POST.get("for_proj") 
+        # print(rating,cmts,feedb_for_name,request.user, "thisss issssssssssss ")
+        print(Project.objects.get(proj_title=feedb_for_name).dept,'thiss issssssssssss')
+        Feedback.objects.create(rating=rating, user_feedback=cmts , project_dept=Project.objects.get(proj_title=feedb_for_name).dept , project_f=Project.objects.get(proj_title=feedb_for_name), user_f=UserModel.objects.get(user_email=request.user.email))
+        
     return render(request, "website1/extc.html",context)
 
 def dataentry(request):
@@ -118,17 +143,25 @@ def dataentry(request):
 def edit_data(request):
     global phn
     global org
+    global role
 
     if UserModel.objects.filter(user_email=request.user.email).exists():
         return redirect("/")
     elif request.method=="POST":
-        phn_no = request.POST.get("mobile")
-        org_name = request.POST.get("org")
-        # print(phn,org_name,"thisss issssssssssss ")
-        phn=phn_no
-        org=org_name
+         
+        phn   =request.POST.get("mobile")
+        org   =request.POST.get("org")
+        role  = request.POST.get("role")
+        print(phn,org,role,"thisss issssssssssss ")
+
         return redirect("/")
-    return render(request, "website1/form.html") 
+
+    context={
+        'email':request.user.email,
+        'name' :request.user.first_name + " " + request.user.last_name
+    }
+
+    return render(request, "website1/form.html",context) 
 
 @login_required(login_url='login')
 def logout(request):

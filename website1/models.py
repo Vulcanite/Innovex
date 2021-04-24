@@ -1,4 +1,6 @@
 from django.db import models
+from datetime import datetime
+
 
 DEPT_CHOICES = (
     ('it','IT'),
@@ -16,6 +18,9 @@ CATEGORY_CHOICES = (
 DESIGNATION_CHOICES = (
     ('STUDENT','STUDENT'),
     ('FACULTY','FACULTY'),
+    ('ALUMNI','ALUMNI'),
+    ('PARENTS','PARENTS'),
+    ('GUEST','GUEST'),
 )
 
 # Create your models here.
@@ -34,6 +39,7 @@ class Project(models.Model):
     drive_link       = models.CharField(max_length=100, default="0")
     proj_description = models.TextField()
     tech_aspects     = models.CharField(max_length=100, default="img.jpg")
+    proj_thumbnail   = models.CharField(max_length=100, default="img.jpg")
 
     def __str__(self):
         return str(self.proj_title)
@@ -54,6 +60,9 @@ class UserModel(models.Model):
 class Feedback(models.Model):
     rating        = models.IntegerField()
     user_feedback = models.TextField()
+    project_dept  = models.CharField(max_length=50,choices=DEPT_CHOICES,default="IT")
+    user_role     = models.CharField(max_length=50,default="STUDENT")
+    feedback_time = models.DateTimeField(default=datetime.now)
     project_f     = models.ForeignKey(Project, on_delete=models.CASCADE)
     user_f        = models.ForeignKey(UserModel, on_delete=models.CASCADE)
 

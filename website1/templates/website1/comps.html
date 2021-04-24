@@ -47,8 +47,13 @@
         <div class="container">
             <!-- <a class="navbar-brand logo" href="#">Brand</a> -->
 
+            <a class="navbar-brand logo" href="#"> 
+                <img src="https://dl.dropbox.com/s/o89s3r0howppzea/dbitlogo.png" width="50" height="50" class="d-inline-block align-top" alt="">
+          
+            </a>
+            <div class="vl" style="height: 45px; border-left: solid black;"></div>&nbsp;&nbsp;&nbsp;
             <a class="navbar-brand logo" href="#">
-                <img src="https://dl.dropbox.com/s/bz40gbg1sn8ilkc/innovLogo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                <img src="https://dl.dropbox.com/s/bz40gbg1sn8ilkc/innovLogo.png" width="40" height="40" class="d-inline-block align-top" alt="">
             INNOVEX
             </a>
 
@@ -317,7 +322,7 @@
           <div class="row">
             <div class="col-lg-7">
               <div class="embed-responsive embed-responsive-16by9">
-                {% if d.youtube_link == 0 %}
+                {% if d.youtube_link|length > 5 %}
                 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{d.youtube_link|slice:'17:'}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 {% else %}
                 <iframe class="embed-responsive-item" src="{{d.drive_link|slice:':66'}}preview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -338,7 +343,7 @@
             </div>
           </div>
 
-          <!-- feedback section -->
+          <!-- feedback accordion -->
           <br>
           <div id="demo"  style="background-color: #e0ebeb">
             <br>
@@ -393,8 +398,16 @@
 
     <footer class="page-footer">
         <div class="container">
-            <div class="links"><a href="#">About me</a><a href="#">Contact me</a><a href="#">Projects</a></div>
-            <div class="social-icons"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-instagram-outline"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a></div>
+            <!-- <div class="links"><a href="#">About me</a><a href="#">Contact me</a><a href="#">Projects</a></div> -->
+            <div class="font-weight-bold">Connect with us</div>
+            <div class="social-icons"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-instagram-outline"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-youtube"></i></a><a href="#"><i class="icon ion-social-linkedin"></i></a></div>
+
+            <div class="font-weight-bold" style="font-size: 15px;">Don Bosco Institute Of Technology, Premier Automobiles Road, Opp. HDIL Premier Exotica,
+Kurla (W), Mumbai. Maharashtra – 400070</div>
+            <div class="font-weight-bold" style="font-size: 15px;">&copy;2021 DBIT. All Rights Reserved.</div>
+            <div class="font-weight-bold">Designed and developed by<a href="#" style="color: blue">Innovex Website Team</a></div>
+
+
         </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
