@@ -47,7 +47,7 @@ def itdept(request):
         cmts = request.POST.get("comments")
         feedb_for_name = request.POST.get("for_proj") 
         # print(rating,cmts,feedb_for_name,request.user, "thisss issssssssssss ")
-        Feedback.objects.create(rating=rating, user_feedback=cmts , project_dept=Project.objects.get(proj_title=feedb_for_name).dept , project_f=Project.objects.get(proj_title=feedb_for_name), user_f=UserModel.objects.get(user_email=request.user.email))
+        Feedback.objects.create(rating=rating, user_feedback=cmts , project_dept=Project.objects.get(proj_title=feedb_for_name).dept , project_f=Project.objects.get(proj_title=feedb_for_name), user_f=UserModel.objects.get(user_email=request.user.email),user_role=UserModel.objects.get(user_email=request.user.email).user_designation,org_name=UserModel.objects.get(user_email=request.user.email).organisation)
 
 
     return render(request, "website1/it.html",context)

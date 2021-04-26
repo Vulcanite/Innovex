@@ -330,19 +330,19 @@
             </div>
             
             <div class="col-lg-5">
-              <center><h3 class="card-title">{{ d.proj_title }}</h3></center>
+              <center><h3 class="card-title" align="left">{{ d.proj_title }}</h3></center>
               <p style="font-size: 15px;" class="card-text1"><strong class="text bg-primary text-white">&nbsp;{{ d.proj_category }}&nbsp;</strong></p>
               <p class="card-text"><strong class="text-muted"><i class="fa fa-linkedin-square"></i>&nbsp;<a href="{{d.mem1_linkedin}}" target="_blank">{{ d.mem1_name }}</a> &nbsp;|&nbsp; <a href="{{d.mem2_linkedin}}" target="_blank">{{ d.mem2_name }}</a> &nbsp;| &nbsp;<a href="{{d.mem3_linkedin}}" target="_blank">{{ d.mem3_name }}</a> </strong></p>
               <p class="card-text">{{ d.proj_description }}
               </p>
               <div class="row">&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="{{d.tech_aspects}}"><button type="button" class="btn btn-dark btn-sm col-6">Technical aspects</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="{{d.tech_aspects}}" target="_blank"><button type="button" class="btn btn-dark btn-sm col-6">Technical aspects</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
                 <!-- <button type="button" class="btn btn-primary btn-sm col-5" data-toggle="collapse" data-target="#demo">Give your feedback</button> -->
               </div>
             </div>
           </div>
 
-          <!-- feedback accordion -->
+          <!-- feedback -->
           <br>
           <div id="demo"  style="background-color: #e0ebeb">
             <br>
@@ -357,11 +357,11 @@
                 <div class="col-lg-7">
                   <div class="form-group" style="padding-right:10px;padding-left:10px; " >
                     <select class="form-control" id="exampleFormControlSelect1" name="rating"  >
-                      <option value="1">Poor</option>
-                      <option value="2">Average</option>
-                      <option value="3">Good</option>
-                      <option value="4">Very good</option>
                       <option value="5">Excellent</option>
+                      <option value="4">Very good</option>
+                      <option value="3">Good</option>
+                      <option value="2">Average</option>
+                      <option value="1">Poor</option>
                     </select>
                   </div>
                 </div>
@@ -384,9 +384,11 @@
             </form>
           </div>
           <!-- feedback end -->
-
         </div>
         <!-- modal content end -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: grey;">Close</button>
+        </div>
       </div>
     </div>
   </div>
@@ -423,6 +425,16 @@ Kurla (W), Mumbai. Maharashtra – 400070</div>
         });
       });
     });
+
+
+    $('.modal ').on('hidden.bs.modal', function () {
+      // do something...
+      console.log("hello working")
+      // var video = $(".embed-responsive-item").attr("src");
+      // $(".embed-responsive-item").attr("src","");
+      // $(".embed-responsive-item").attr("src",video);
+    })
+
 
     </script>
 

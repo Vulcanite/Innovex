@@ -60,13 +60,16 @@ class UserModel(models.Model):
 
 
 class Feedback(models.Model):
+    project_dept  = models.CharField(max_length=50,choices=DEPT_CHOICES,default="IT")
+    project_f     = models.ForeignKey(Project, on_delete=models.CASCADE)
     rating        = models.IntegerField()
     user_feedback = models.TextField()
-    project_dept  = models.CharField(max_length=50,choices=DEPT_CHOICES,default="IT")
-    user_role     = models.CharField(max_length=50,default="STUDENT")
-    feedback_time = models.DateTimeField(default=datetime.now)
-    project_f     = models.ForeignKey(Project, on_delete=models.CASCADE)
     user_f        = models.ForeignKey(UserModel, on_delete=models.CASCADE)
+    user_role     = models.CharField(max_length=50,default="STUDENT")
+    org_name      = models.CharField(max_length=100,default="DBIT") 
+    feedback_time = models.DateTimeField(default=datetime.now)
+    
+    
 
     def __str__(self):
         return str(self.project_f)
