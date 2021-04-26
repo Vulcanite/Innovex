@@ -194,7 +194,8 @@
             <li><a id="d1" href="#" onclick="filter(document.getElementById('d1').innerHTML);">All</a></li>
             <li><a id="d2" href="#" onclick="filter(document.getElementById('d2').innerHTML);">Product Development</a></li>
             <li><a id="d3" href="#" onclick="filter(document.getElementById('d3').innerHTML);">Research</a></li>
-            <li><a id="d4" href="#" onclick="filter(document.getElementById('d4').innerHTML);">Env. Sustainability</a></li>
+            <li><a id="d4" href="#" onclick="filter(document.getElementById('d4').innerHTML);">Emerging technology</a></li>
+            <li><a id="d5" href="#" onclick="filter(document.getElementById('d5').innerHTML);">Env. Sustainability</a></li>
           </ul>
         </div>
       </div>
@@ -202,7 +203,7 @@
 
     <script>
       function filter(p){
-        l=["Product Development","Research","Env. Sustainability"]
+        l=["Product Development","Research","Emerging technology","Env. Sustainability"]
         var i=0;
         for (i = 0; i < l.length; i++){
                   console.log(l[i]);
@@ -225,56 +226,15 @@
     <hr style="height:3px;border-width:0;background-color:#000">
       <h5 class="font-weight-bold">PRODUCT DEVELOPMENT</h5>
     <div class="row">
-      <!-- <div class="col-lg-3" data-toggle="modal" data-target="#bd-example-modal-lg">
-        <div class="card mb-3">
-          <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p>
-            <p class="card-text"><small class="text-muted">Pratik Nerurkar, Calden Rodrigues, John Anand</small></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3">
-        <div class="card mb-3">
-          <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p>
-            <p class="card-text"><small class="text-muted">Pratik Nerurkar, Calden Rodrigues, John Anand</small></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3">
-        <div class="card mb-3">
-          <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p>
-            <p class="card-text"><small class="text-muted">Pratik Nerurkar, Calden Rodrigues, John Anand</small></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3">
-        <div class="card mb-3">
-          <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p>
-            <p class="card-text"><small class="text-muted">Pratik Nerurkar, Calden Rodrigues, John Anand</small></p>
-          </div>
-        </div>
-      </div> -->
       <!-- dynamic rendering -->
       {% for d_pd in datait_pd %}
       <div class="col-lg-3">
           <div class="card mb-3" data-toggle="modal" data-target="#proj{{ d_pd.proj_id }}">
-            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
+
+            <img class="card-img-top" src="https://img.youtube.com/vi/{{d_pd.youtube_link|slice:'17:'}}/0.jpg" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">{{ d_pd.proj_title }}</h5>
+
               <!-- <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p> -->
               <p class="card-text"><small class="text-muted">{{ d_pd.mem1_name }} | {{ d_pd.mem2_name }} | {{ d_pd.mem3_name }}</small></p>
             </div>
@@ -288,54 +248,11 @@
     <hr style="height:3px;border-width:0;background-color:#000">
       <h5 class="font-weight-bold">RESEARCH BASED</h5>
     <div class="row">
-      <!-- <div class="col-lg-3">
-        <div class="card mb-3">
-          <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p>
-            <p class="card-text"><small class="text-muted">Pratik Nerurkar, Calden Rodrigues, John Anand</small></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3">
-        <div class="card mb-3">
-          <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p>
-            <p class="card-text"><small class="text-muted">Pratik Nerurkar, Calden Rodrigues, John Anand</small></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3">
-        <div class="card mb-3">
-          <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p>
-            <p class="card-text"><small class="text-muted">Pratik Nerurkar, Calden Rodrigues, John Anand</small></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3">
-        <div class="card mb-3">
-          <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p>
-            <p class="card-text"><small class="text-muted">Pratik Nerurkar, Calden Rodrigues, John Anand</small></p>
-          </div>
-        </div>
-      </div> -->
       <!-- dynamic rendering -->
       {% for d_rb in datait_rb %}
       <div class="col-lg-3">
           <div class="card mb-3" data-toggle="modal" data-target="#proj{{ d_rb.proj_id }}">
-            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
+            <img class="card-img-top" src="https://img.youtube.com/vi/{{d_rb.youtube_link|slice:'17:'}}/0.jpg" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">{{ d_rb.proj_title }}</h5>
               <!-- <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p> -->
@@ -346,59 +263,38 @@
       {% endfor %}
     </div>
 </div>
+
 <!-- =============================== category 3======================== -->
+<div id="Emerging technology">
+    <hr style="height:3px;border-width:0;background-color:#000">
+      <h5 class="font-weight-bold">EMERGING TECHNOLOGY</h5>
+    <div class="row">
+      <!-- dynamic rendering -->
+      {% for d_et in datait_et %}
+      <div class="col-lg-3">
+          <div class="card mb-3" data-toggle="modal" data-target="#proj{{ d_et.proj_id }}">
+            <img class="card-img-top" src="https://img.youtube.com/vi/{{d_et.youtube_link|slice:'17:'}}/0.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{ d_et.proj_title }}</h5>
+              <!-- <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p> -->
+              <p class="card-text"><small class="text-muted">{{ d_et.mem1_name }} | {{ d_et.mem2_name }} | {{ d_et.mem3_name }}</small></p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+</div>
+
+<!-- =============================== category 4======================== -->
 <div id="Env. Sustainability">
     <hr style="height:3px;border-width:0;background-color:#000">
       <h5 class="font-weight-bold">ENVIRONMENT SUSTAINABILITY</h5>
     <div class="row">
-      <!-- <div class="col-lg-3">
-        <div class="card mb-3">
-          <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p>
-            <p class="card-text"><small class="text-muted">Pratik Nerurkar, Calden Rodrigues, John Anand</small></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3">
-        <div class="card mb-3">
-          <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p>
-            <p class="card-text"><small class="text-muted">Pratik Nerurkar, Calden Rodrigues, John Anand</small></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3">
-        <div class="card mb-3">
-          <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p>
-            <p class="card-text"><small class="text-muted">Pratik Nerurkar, Calden Rodrigues, John Anand</small></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3">
-        <div class="card mb-3">
-          <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p>
-            <p class="card-text"><small class="text-muted">Pratik Nerurkar, Calden Rodrigues, John Anand</small></p>
-          </div>
-        </div>
-      </div> -->
       <!-- dynamic rendering -->
       {% for d_env in datait_env %}
       <div class="col-lg-3">
           <div class="card mb-3" data-toggle="modal" data-target="#proj{{ d_env.proj_id }}">
-            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
+            <img class="card-img-top" src="https://img.youtube.com/vi/{{d_env.youtube_link|slice:'17:'}}/0.jpg" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">{{ d_env.proj_title }}</h5>
               <!-- <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p> -->
@@ -440,7 +336,7 @@
               <p class="card-text">{{ d.proj_description }}
               </p>
               <div class="row">&nbsp;&nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-dark btn-sm col-6">Technical aspects</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="{{d.tech_aspects}}"><button type="button" class="btn btn-dark btn-sm col-6">Technical aspects</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
                 <!-- <button type="button" class="btn btn-primary btn-sm col-5" data-toggle="collapse" data-target="#demo">Give your feedback</button> -->
               </div>
             </div>
