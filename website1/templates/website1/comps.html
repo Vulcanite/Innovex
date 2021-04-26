@@ -143,10 +143,19 @@
             <div class="card-body">
               <h5 class="card-title">{{ d_pd.proj_title }}</h5>
               <!-- <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p> -->
-              <p class="card-text"><small class="text-muted">{{ d_pd.mem1_name }} | {{ d_pd.mem2_name }} | {{ d_pd.mem3_name }}
+              <p class="card-text"><small class="text-muted">
+                {% if d_pd.mem1_name != "0" %}
+                   {{ d_pd.mem1_name }} 
+                   {% endif %} 
+                {% if d_pd.mem2_name != "0" %} 
+                  | {{ d_pd.mem2_name }} 
+                  {% endif %}  
+                {% if d_pd.mem3_name != "0" %}
+                  | {{ d_pd.mem3_name }} 
+                  {% endif %} 
                 {% if d_pd.mem4_name != "0" %}
-                 | {{ d_pd.mem4_name }}
-                {% endif %}
+                  | {{ d_pd.mem4_name }}
+                {% endif %} 
               </small></p>
             </div>
           </div>
@@ -167,10 +176,19 @@
             <div class="card-body">
               <h5 class="card-title">{{ d_rb.proj_title }}</h5>
               <!-- <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p> -->
-              <p class="card-text"><small class="text-muted">{{ d_rb.mem1_name }} | {{ d_rb.mem2_name }} | {{ d_rb.mem3_name }}
+              <p class="card-text"><small class="text-muted">
+                {% if d_rb.mem1_name != "0" %}
+                   {{ d_rb.mem1_name }} 
+                   {% endif %} 
+                {% if d_rb.mem2_name != "0" %} 
+                  | {{ d_rb.mem2_name }}  
+                  {% endif %} 
+                {% if d_rb.mem3_name != "0" %}
+                  | {{ d_rb.mem3_name }} 
+                  {% endif %} 
                 {% if d_rb.mem4_name != "0" %}
-                 | {{ d_rb.mem4_name }}
-                {% endif %}
+                  | {{ d_rb.mem4_name }}
+                {% endif %} 
               </small></p>
             </div>
           </div>
@@ -192,10 +210,19 @@
             <div class="card-body">
               <h5 class="card-title">{{ d_et.proj_title }}</h5>
               <!-- <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p> -->
-              <p class="card-text"><small class="text-muted">{{ d_et.mem1_name }} | {{ d_et.mem2_name }} | {{ d_et.mem3_name }}
+              <p class="card-text"><small class="text-muted">
+                {% if d_et.mem1_name != "0" %}
+                   {{ d_et.mem1_name }} 
+                   {% endif %} 
+                {% if d_et.mem2_name != "0" %} 
+                  | {{ d_et.mem2_name }}  
+                  {% endif %} 
+                {% if d_et.mem3_name != "0" %}
+                  | {{ d_et.mem3_name }}
+                  {% endif %}  
                 {% if d_et.mem4_name != "0" %}
-                 | {{ d_et.mem4_name }}
-                {% endif %}
+                  | {{ d_et.mem4_name }}
+                {% endif %} 
               </small></p>
             </div>
           </div>
@@ -217,10 +244,19 @@
             <div class="card-body">
               <h5 class="card-title">{{ d_env.proj_title }}</h5>
               <!-- <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p> -->
-              <p class="card-text"><small class="text-muted">{{ d_env.mem1_name }} | {{ d_env.mem2_name }} | {{ d_env.mem3_name }}
+              <p class="card-text"><small class="text-muted">
+                {% if d_env.mem1_name != "0" %}
+                   {{ d_env.mem1_name }} 
+                {% endif %}    
+                {% if d_env.mem2_name != "0" %} 
+                  | {{ d_env.mem2_name }}  
+                {% endif %}   
+                {% if d_env.mem3_name != "0" %}
+                  | {{ d_env.mem3_name }} 
+                {% endif %}   
                 {% if d_env.mem4_name != "0" %}
-                 | {{ d_env.mem4_name }}
-                {% endif %}
+                  | {{ d_env.mem4_name }}
+                {% endif %} 
               </small></p>
             </div>
           </div>
@@ -255,8 +291,14 @@
             <div class="col-lg-5">
               <center><h3 class="card-title" align="left">{{ d.proj_title }}</h3></center>
               <p style="font-size: 15px;" class="card-text1"><strong class="text bg-primary text-white">&nbsp;{{ d.proj_category }}&nbsp;</strong></p>
-              <p class="card-text"><strong class="text-muted"><i class="fa fa-linkedin-square">
-                </i>&nbsp;<a href="{{d.mem1_linkedin}}" target="_blank">{{ d.mem1_name }}</a> &nbsp;|&nbsp; <a href="{{d.mem2_linkedin}}" target="_blank">{{ d.mem2_name }}</a> &nbsp;| &nbsp;<a href="{{d.mem3_linkedin}}" target="_blank">{{ d.mem3_name }}</a> 
+              <p class="card-text"><strong class="text-muted"><i class="fa fa-linkedin-square"> </i>&nbsp;
+                <a href="{{d.mem1_linkedin}}" target="_blank">{{ d.mem1_name }}</a>
+                {% if d.mem2_name != "0" %} 
+                &nbsp;|&nbsp; <a href="{{d.mem2_linkedin}}" target="_blank">{{ d.mem2_name }}</a> 
+                {% endif %}
+                {% if d.mem3_name != "0" %}
+                &nbsp;| &nbsp;<a href="{{d.mem3_linkedin}}" target="_blank">{{ d.mem3_name }}</a> 
+                {% endif %}
                 {% if d.mem4_name != "0" %}
                 &nbsp;| &nbsp;<a href="{{d.mem4_linkedin}}" target="_blank">{{ d.mem4_name }}</a>
                 {% endif %}
