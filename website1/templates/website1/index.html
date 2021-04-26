@@ -156,10 +156,11 @@
     <!-- ======================== INNOVEX 2021 =========================== -->
     <div class="container" >
         <h2 class="text-center font-weight-bold"> INNOVEX 2021</h2>
-        <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efr nunc, vivamus vel accumsan dui. Quisque ac dolor cursus, volutpat nisl vel, porttitor eros.</p>
+        <h5 class="text-center">BE Final year exhibition - DBIT's vision of producing employable engineers who can​ ideate and design solutions for problems relevant to both the society and industry.</h5>
         
 
     </div>
+    <br>
   
 
     <!-- ======================== About =========================== -->
@@ -169,11 +170,14 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-12 col-lg-5">
-                    <img class="img-fluid" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg">
+                    <center><img class="img-fluid" src="https://dl.dropbox.com/s/bz40gbg1sn8ilkc/innovLogo.png"></center>
                 </div>
                 <div class="col-md-12 col-lg-5 offset-lg-1 text">
-                    <h3>What is INNOVEX</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efr nunc, vivamus vel accumsan dui. Quisque ac dolor cursus, volutpat nisl vel, porttitor eros.</p>
+                    <h3><center>What is INNOVEX?</center></h3>
+                    <p><center>Innovex is a platform for the students to showcase their year long effort and help in encouraging
+open-ended discussions and deliberations for improving the scope of the project. It also
+encourages the students to pitch their ideas & solutions in front of the judges from the Industry,
+Academia and Alumni.</center></p>
                 </div>
                 
             </div>
@@ -189,25 +193,34 @@
       <br>
         <div class="card-deck">
           <div class="card">
-            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
+            <img class="card-img-top" src="https://dl.dropbox.com/s/6urd6sh1488m680/Principal.png" alt="Card image cap">
             <div class="card-body">
-              <center><h4 class="card-title-bold">Principal Dr. Prasanna Nambiar</h4></center>
+             
+              <br> 
+              <center><h4 class="card-title-bold">Dr. Prasanna Nambiar</h4></center>
+              <center><h4 class="card-title-bold">Principal</h4></center>
               <br>
               <center><h6>Their views about innovex</h6></center>
+
 
             </div>
           </div>
           <div class="card">
-            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
+            <img class="card-img-top" src="https://dl.dropbox.com/s/dq5xobrkdwxjzah/ExecutiveDirector.png" alt="Card image cap">
             <div class="card-body">
-              <center><h4 class="card-title-bold">Father Mario</h4></center>
+              <br>
+              <center><h4 class="card-title-bold">Fr. Mario Vaz</h4></center>
+              <center><h4 class="card-title-bold">Executive Director</h4></center>
+              
               <br>
               <center><h6>Their views about innovex</h6></center>
             </div>
           </div>
           <div class="card">
-            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
+            <img class="card-img-top" src=" https://dl.dropbox.com/s/xjrlzeccjxionek/Cleata_innovexCoordinator.png" alt="Card image cap">
             <div class="card-body">
+              <br>
+              <center><h4 class="card-title-bold">Ms. Cleta A. Pereira</h4></center>
               <center><h4 class="card-title-bold">Innovex Co-ordinator</h4></center>
               <br>
               <center><h6>Their views about innovex</h6></center>
@@ -230,11 +243,11 @@
             <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
             <div class="card-body">
               <center><h4 class="card-title-bold">
-                {% if user.is_authenticated %}
-                  <a href="itdept" class="stretched-link" style="text-decoration: none;color: black;">Information Technology Department</a> 
-                {% else %}
-                  <a href="{% provider_login_url 'google' %}?next=/editdata" class="stretched-link" style="text-decoration: none;color: black;">Information Technology Department</a> 
-                {% endif %}
+                
+                  <a target="_blank" href="http://it.dbit.in/" class="stretched-link" style="text-decoration: none;color: black;">Information Technology Department</a> 
+                
+                 
+                
               </h4></center>
             </div>
           </div>
@@ -242,11 +255,11 @@
             <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
             <div class="card-body">
               <center><h4 class="card-title-bold">
-                {% if user.is_authenticated %}
-                  <a href="compsdept" class="stretched-link" style="text-decoration: none;color: black;">Computer Science Department</a> 
-                {% else %}
-                  <a href="{% provider_login_url 'google' %}?next=/editdata" class="stretched-link" style="text-decoration: none;color: black;">Computer Science Department</a> 
-                {% endif %}
+                
+                  <a target="_blank" href="https://comps.dbit.in/" class="stretched-link" style="text-decoration: none;color: black;">Computer Science Department</a> 
+                
+                  
+              
               </h4></center>
             </div>
           </div>
@@ -254,11 +267,10 @@
             <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
             <div class="card-body">
               <center><h4 class="card-title-bold">
-                {% if user.is_authenticated %}
-                  <a href="extcdept" class="stretched-link" style="text-decoration: none;color: black;">Electronics And Telecommunication Department</a> 
-                {% else %}
-                  <a href="{% provider_login_url 'google' %}?next=/editdata" class="stretched-link" style="text-decoration: none;color: black;">Electronics And Telecommunication Department</a> 
-                {% endif %}
+                
+                  <a target="_blank" href="https://extc.dbit.in/" class="stretched-link" style="text-decoration: none;color: black;">Electronics And Telecommunication Department</a> 
+                
+              
               </h4></center>
             </div>
           </div>
@@ -266,11 +278,11 @@
             <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
             <div class="card-body">
               <center><h4 class="card-title-bold">
-                {% if user.is_authenticated %}
-                  <a href="mechdept" class="stretched-link" style="text-decoration: none;color: black;">Mechanical Department</a> 
-                {% else %}
-                  <a href="{% provider_login_url 'google' %}?next=/editdata" class="stretched-link" style="text-decoration: none;color: black;">Mechanical Department</a> 
-                {% endif %}
+                
+                  <a target="_blank" href="https://mech.dbit.in/" class="stretched-link" style="text-decoration: none;color: black;">Mechanical Department</a> 
+                
+                  
+            
               </h4></center>
             </div>
           </div>
@@ -291,44 +303,43 @@
       <br>
         <div class="card-deck">
           <div class="card">
-            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
+            <img class="card-img-top" src="https://dl.dropbox.com/s/jg05ejzsr68lwl1/Comps.png" alt="Card image cap">
+            <br>
             <div class="card-body">
               <center><h4 class="card-title-bold">Computer Science Department</h4></center>
               <br>
               <br>
-               <h5><b>Team Name - Mumbai Indians</b></h5>
-               <br>
+               
                 <h5><b>Team Members</b></h5>
               <ol>
-                <li>Amish</li>
-                <li>Kshitij</li>
-                <li>Abhijeet</li>
+                <li>Vignesh S.</li>
+                <li>Aditya P.</li>
+                <li>Ram D.</li>
               </ol>
             </div>
           </div>
           <div class="card">
-            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
+            <img class="card-img-top" src="https://dl.dropbox.com/s/c19imgils0scv2v/IT.png" alt="Card image cap">
+            <br>
             <div class="card-body">
               <center><h4 class="card-title-bold">Information Technology Department</h4></center>
               <br>
               <br>
-               <h5><b>Team Name - Mumbai Indians</b></h5>
-               <br>
+               
                 <h5><b>Team Members</b></h5>
               <ol>
-                <li>Amish</li>
-                <li>Kshitij</li>
-                <li>Abhijeet</li>
+                <li>Pratik Nerurkar</li>
+                <li>Calden Rodrigue</li>
+                <li>JohnAnand B.</li>
               </ol>
             </div>
           </div>
           <div class="card">
-            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
+            <img class="card-img-top" src="https://dl.dropbox.com/s/6n2z04tgrm050ig/extc.png" alt="Card image cap">
+            <br>
             <div class="card-body">
               <center><h4 class="card-title-bold">Electronics And Telecommunication Department</h4></center>
               <br>
-               <h5><b>Team Name - Mumbai Indians</b></h5>
-               <br>
                 <h5><b>Team Members</b></h5>
               <ol>
                 <li>Amish</li>
@@ -339,15 +350,13 @@
           </div>
 
           <div class="card">
-            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
+            <img class="card-img-top" src="https://dl.dropbox.com/s/h2ux13bmpgsukpy/Mech.png" alt="Card image cap">
+            <br>
             <div class="card-body">
               <center><h4 class="card-title-bold">Mechanical Department</h4></center>
               <br>
               <br>
               <br>
-
-               <h5><b>Team Name - Mumbai Indians</b></h5>
-               <br>
                 <h5><b>Team Members</b></h5>
               <ol>
                 <li>Amish</li>
