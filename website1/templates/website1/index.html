@@ -51,10 +51,18 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link active" style="border-bottom: 5px solid #000;" href="/">Home</a></li>
+                    {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link" href="itdept">IT</a></li>
                     <li class="nav-item"><a class="nav-link" href="compsdept">COMPS</a></li>
                     <li class="nav-item"><a class="nav-link" href="extcdept">EXTC</a></li>
                     <li class="nav-item"><a class="nav-link" href="mechdept">MECH</a></li>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% provider_login_url 'google' %}?next=/editdata">IT</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% provider_login_url 'google' %}?next=/editdata">COMPS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% provider_login_url 'google' %}?next=/editdata">EXTC</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% provider_login_url 'google' %}?next=/editdata">MECH</a></li>
+                    {% endif %}
+
                     {% if user.is_authenticated %}
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
@@ -83,133 +91,7 @@
     <br>
     
     
-    <!-- ======================== login modal ============================= -->
-
-
-
-    <!--Modal: Login / Register Form-->
-<div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog cascading-modal" role="document">
-    <!--Content-->
-    <div class="modal-content">
-
-      <!--Modal cascading tabs-->
-      <div class="modal-c-tabs">
-
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab">
-              <i class="fa fa-user" aria-hidden="true"></i>Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fa fa-user-plus" aria-hidden="true"></i>
-              Register</a>
-          </li>
-        </ul>
-
-        <!-- Tab panels -->
-        <div class="tab-content">
-          <!--Panel 7-->
-          <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
-
-            <!--Body-->
-            <div class="modal-body mb-1">
-
-              <div class="md-form form-sm mb-5">
-                <!-- <i class="bi bi-envelope"></i> -->               
-                <label data-error="wrong" data-success="right" for="modalLRInput10">Your email</label>
-                <input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
-              </div>
-
-              <div class="md-form form-sm mb-4">
-                <!-- <i class="fas fa-lock prefix"></i> -->
-                <label data-error="wrong" data-success="right" for="modalLRInput11">Your password</label>
-                <input type="password" id="modalLRInput11" class="form-control form-control-sm validate">
-              </div>
-              <div class="text-center mt-2">
-                <button class="btn btn-info">Log in <i class="fas fa-sign-in ml-1"></i></button>
-              </div>
-            </div>
-            <!--Footer-->
-            <div class="modal-footer">
-              <div class="options text-center text-md-right mt-1">
-                <p>Forgot <a href="#" class="blue-text">Password?</a></p>
-              </div>
-              <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
-            </div>
-
-          </div>
-          <!--/.Panel 7-->
-
-          <!--Panel 8-->
-          <div class="tab-pane fade" id="panel8" role="tabpanel">
-
-            <!--Body-->
-
-            <div class="modal-body">
-              <div class="md-form form-sm mb-3">
-                <!-- <i class="bi bi-envelope"></i> -->               
-                <label data-error="wrong" data-success="right" for="modalLRInput10">Full name</label>
-                <input type="text" id="modalLRInput10" class="form-control form-control-sm validate">
-              </div>
-
-              <div class="md-form form-sm mb-3">
-                <!-- <i class="bi bi-envelope"></i> -->               
-                <label data-error="wrong" data-success="right" for="modalLRInput10">Institute/Company name</label>
-                <input type="text" id="modalLRInput10" class="form-control form-control-sm validate">
-              </div>
-
-              <div class="md-form form-sm mb-3">
-                <!-- <i class="bi bi-envelope"></i> -->               
-                <label data-error="wrong" data-success="right" for="modalLRInput10">Mobile no.</label>
-                <input type="number" id="modalLRInput10" class="form-control form-control-sm validate">
-              </div>
-              
-              <div class="md-form form-sm mb-3">
-                <!--i class="fas fa-envelope prefix"></i>-->
-                <label data-error="wrong" data-success="right" for="modalLRInput12">Your email</label>
-                <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
-
-              </div>
-
-              <div class="md-form form-sm mb-3">
-                <!--i class="fas fa-lock prefix"></i>-->
-                <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
-                <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
-
-              </div>
-
-              <div class="md-form form-sm mb-3">
-                <!--i class="fas fa-lock prefix"></i>-->
-                <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat password</label>
-                <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
-
-              </div>
-
-              <div class="text-center form-sm mt-2">
-                <button class="btn btn-info" >SIGN UP<i class="fa fa-sign-in" aria-hidden="true"></i></button>
-              </div>
-
-            </div>
-            <!--Footer-->
-            <div class="modal-footer">
-              <div class="options text-right">
-              </div>
-              <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-          <!--/.Panel 8-->
-        </div>
-
-      </div>
-    </div>
-    <!--/.Content-->
-  </div>
-</div>
-<!-- ================================================ login modal end================================================================= -->
-
-
+  
     
     <!-- ========================= Carousal bootstrap ====================== -->
     
@@ -347,30 +229,51 @@
           <div class="card">
             <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
             <div class="card-body">
-              <center><h4 class="card-title-bold"><a href="#" class="stretched-link" style="text-decoration: none;color: black;">Computer Science Department</a> </h4></center>
+              <center><h4 class="card-title-bold">
+                {% if user.is_authenticated %}
+                  <a href="itdept" class="stretched-link" style="text-decoration: none;color: black;">Information Technology Department</a> 
+                {% else %}
+                  <a href="{% provider_login_url 'google' %}?next=/editdata" class="stretched-link" style="text-decoration: none;color: black;">Information Technology Department</a> 
+                {% endif %}
+              </h4></center>
             </div>
           </div>
           <div class="card">
             <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
             <div class="card-body">
-              <center><h4 class="card-title-bold"><a href="#" class="stretched-link" style="text-decoration: none;color: black;">Information Technology Department</a></h4></center>
-              
+              <center><h4 class="card-title-bold">
+                {% if user.is_authenticated %}
+                  <a href="compsdept" class="stretched-link" style="text-decoration: none;color: black;">Computer Science Department</a> 
+                {% else %}
+                  <a href="{% provider_login_url 'google' %}?next=/editdata" class="stretched-link" style="text-decoration: none;color: black;">Computer Science Department</a> 
+                {% endif %}
+              </h4></center>
             </div>
           </div>
           <div class="card">
             <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
             <div class="card-body">
-              <center><h4 class="card-title-bold"><a href="#" class="stretched-link" style="text-decoration: none;color: black;">Electronics And Telecommunication Department</a></h4></center>
+              <center><h4 class="card-title-bold">
+                {% if user.is_authenticated %}
+                  <a href="extcdept" class="stretched-link" style="text-decoration: none;color: black;">Electronics And Telecommunication Department</a> 
+                {% else %}
+                  <a href="{% provider_login_url 'google' %}?next=/editdata" class="stretched-link" style="text-decoration: none;color: black;">Electronics And Telecommunication Department</a> 
+                {% endif %}
+              </h4></center>
             </div>
           </div>
-
           <div class="card">
             <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Card image cap">
             <div class="card-body">
-              <center><h4 class="card-title-bold"><a href="#" class="stretched-link" style="text-decoration: none;color: black;">Mechanical Department</a></h4></center>
+              <center><h4 class="card-title-bold">
+                {% if user.is_authenticated %}
+                  <a href="mechdept" class="stretched-link" style="text-decoration: none;color: black;">Mechanical Department</a> 
+                {% else %}
+                  <a href="{% provider_login_url 'google' %}?next=/editdata" class="stretched-link" style="text-decoration: none;color: black;">Mechanical Department</a> 
+                {% endif %}
+              </h4></center>
             </div>
           </div>
-
         </div>
     </div>
 

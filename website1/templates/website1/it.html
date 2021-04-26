@@ -1,3 +1,4 @@
+{% load socialaccount %}
 <!DOCTYPE html>
 <html>
 
@@ -159,6 +160,17 @@
                     <li class="nav-item"><a class="nav-link" href="compsdept">COMPS</a></li>
                     <li class="nav-item"><a class="nav-link" href="extcdept">EXTC</a></li>
                     <li class="nav-item"><a class="nav-link" href="mechdept">MECH</a></li>
+
+                    {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                         {{ user.username }}
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/logout" >Logout</a></li>
+                      </ul>
+                    </li>
+                    {% endif %}
                     <!-- <li class="nav-item"><a class="btn btn-dark" role="button" href="#">Login</a></li> -->
 
                 </ul>
@@ -515,6 +527,7 @@ Kurla (W), Mumbai. Maharashtra – 400070</div>
         });
       });
     });
+
     </script>
 
 </body>
