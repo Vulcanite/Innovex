@@ -9,7 +9,7 @@ from website1.models import Project
 from website1.models import UserModel
 from website1.models import Feedback
 
-phn=0
+phn=""
 org=""
 role=""
 
@@ -155,7 +155,7 @@ def edit_data(request):
         return redirect("/")
     elif request.method=="POST":
          
-        phn   =request.POST.get("mobile")
+        phn   =str(request.POST.get("mobile"))
         org   =request.POST.get("org")
         role  = request.POST.get("role")
         print(phn,org,role,"thisss issssssssssss ")

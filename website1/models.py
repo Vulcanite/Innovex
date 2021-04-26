@@ -52,7 +52,7 @@ class UserModel(models.Model):
     user_name        = models.CharField(max_length=100)
     user_email       = models.CharField(max_length=100, unique=True)
     user_designation = models.CharField(max_length=50, choices=DESIGNATION_CHOICES, default='STUDENT')
-    user_phone       = models.IntegerField()
+    user_phone       = models.CharField(max_length=50)
     organisation     = models.CharField(max_length=100)
 
     def __str__(self):
