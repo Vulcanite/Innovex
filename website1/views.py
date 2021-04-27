@@ -15,7 +15,9 @@ role=""
 
 def home(request):
     
-
+    # global phn
+    # global org
+    # global role
     #add in if to add only unique email:  not UserModel.objects.filter(user_email=request.user.email).exists()
     if request.user.is_authenticated and not UserModel.objects.filter(user_email=request.user.email).exists():
         UserModel.objects.create(organisation=org, user_phone=phn ,user_designation=role, user_name=request.user.username, user_email=request.user.email)

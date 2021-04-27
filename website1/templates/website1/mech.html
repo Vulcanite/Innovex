@@ -34,7 +34,7 @@
 
      @media screen and (min-width: 676px) {
         .modal-dialog  {
-          max-width: 1000px; /* New width for default modal */
+          max-width: 1300px; /* New width for default modal */
         }
     }
     </style>
@@ -355,7 +355,7 @@
         </div>
         <!-- modal content end -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: grey;">Close</button>
+          <button type="button" id="proj{{ d.proj_id }}" onclick="stopVideo(this.id)" class="btn btn-secondary" data-dismiss="modal" style="background-color: grey;">Close</button>
         </div>
       </div>
     </div>
@@ -383,6 +383,17 @@ Kurla (W), Mumbai. Maharashtra – 400070</div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
     <script type="text/javascript">
       $(".datepicker").each((function(){new Pikaday({field:this})}));
+
+      function stopVideo(id){
+      // console.log(id)
+      id_new="#"+id+" iframe";
+      // console.log(id_new)
+      var video= $(id_new).attr("src");
+      // console.log(video)
+      $(id_new).attr("src", "");
+      $(id_new).attr("src", video);
+    }
+      
     </script>
 </body>
 
