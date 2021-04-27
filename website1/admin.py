@@ -30,6 +30,14 @@ class ExportCsvMixin:
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ('proj_id', 'proj_title', 'proj_category', 'dept')
     search_fields = ['proj_title', 'proj_id']
+    list_filter = (
+        # for ordinary fields
+        # ('project_dept', DropdownFilter),
+        # for choice fields
+        ('dept', ChoiceDropdownFilter),
+        # for related fields
+        # ('project_dept', RelatedDropdownFilter),
+    )
 
 
 class UserModelAdmin(admin.ModelAdmin):
