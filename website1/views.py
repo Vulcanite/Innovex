@@ -29,7 +29,7 @@ def itdept(request):
     datait_rb=Project.objects.filter(dept='it').filter(proj_category='RESEARCH BASED')
     datait_pd=Project.objects.filter(dept='it').filter(proj_category='PRODUCT DEVELOPMENT')
     datait_et=Project.objects.filter(dept='it').filter(proj_category='EMERGING TECHNOLOGY')
-    datait_env=Project.objects.filter(dept='it').filter(proj_category='ENVIRONMENT SUSTAINABILITY')
+    datait_env=Project.objects.filter(dept='it').filter(proj_category='SUSTAINABILITY')
     # data=Project.objects.all()
 
     # print(datait.values())
@@ -60,7 +60,7 @@ def compsdept(request):
     datacomps_rb=Project.objects.filter(dept='comps').filter(proj_category='RESEARCH BASED')
     datacomps_pd=Project.objects.filter(dept='comps').filter(proj_category='PRODUCT DEVELOPMENT')
     datacomps_et=Project.objects.filter(dept='comps').filter(proj_category='EMERGING TECHNOLOGY')
-    datacomps_env=Project.objects.filter(dept='comps').filter(proj_category='ENVIRONMENT SUSTAINABILITY')
+    datacomps_env=Project.objects.filter(dept='comps').filter(proj_category='SUSTAINABILITY')
     # data=Project.objects.all()
 
     # print(datacomps.values())
@@ -90,7 +90,7 @@ def mechdept(request):
     datamech=Project.objects.filter(dept='mech')
     datamech_rb=Project.objects.filter(dept='mech').filter(proj_category='RESEARCH BASED')
     datamech_pd=Project.objects.filter(dept='mech').filter(proj_category='PRODUCT DEVELOPMENT')
-    datamech_env=Project.objects.filter(dept='mech').filter(proj_category='ENVIRONMENT SUSTAINABILITY')
+    datamech_env=Project.objects.filter(dept='mech').filter(proj_category='SUSTAINABILITY')
     datamech_cw=Project.objects.filter(dept='mech').filter(proj_category='COMMUNITY WELFARE')
     # data=Project.objects.all()
 
