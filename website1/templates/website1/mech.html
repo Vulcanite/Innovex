@@ -48,12 +48,12 @@
         <div class="container">
   
 
-            <a class="navbar-brand logo" href="#"> 
+            <a class="navbar-brand logo" href="/"> 
                 <img src="https://dl.dropbox.com/s/o89s3r0howppzea/dbitlogo.png" width="50" height="50" class="d-inline-block align-top" alt="">
           
             </a>
             <div class="vl" style="height: 45px; border-left: solid black;"></div>&nbsp;&nbsp;&nbsp;
-            <a class="navbar-brand logo" href="#">
+            <a class="navbar-brand logo" href="/">
                 <img src="https://dl.dropbox.com/s/bz40gbg1sn8ilkc/innovLogo.png" width="40" height="40" class="d-inline-block align-top" alt="">
             INNOVEX
             </a>
@@ -139,7 +139,11 @@
       {% for d_pd in datamech_pd %}
       <div class="col-lg-3">
           <div class="card mb-3" data-toggle="modal" data-target="#proj{{ d_pd.proj_id }}">
+            {% if d_pd.youtube_link|length > 5 %}            
             <img class="card-img-top" src="https://img.youtube.com/vi/{{d_pd.youtube_link|slice:'17:'}}/0.jpg" alt="Card image cap">
+            {% else %}
+            <img class="card-img-top" src="https://drive.google.com/thumbnail?id={{d_pd.drive_link|slice:'32:65'}}" alt="Card image cap">
+            {% endif %}
             <div class="card-body">
               <h5 class="card-title">{{ d_pd.proj_title }}</h5>
               <!-- <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p> -->
@@ -172,7 +176,11 @@
       {% for d_rb in datamech_rb %}
       <div class="col-lg-3">
           <div class="card mb-3" data-toggle="modal" data-target="#proj{{ d_rb.proj_id }}">
+            {% if d_rb.youtube_link|length > 5 %}            
             <img class="card-img-top" src="https://img.youtube.com/vi/{{d_rb.youtube_link|slice:'17:'}}/0.jpg" alt="Card image cap">
+            {% else %}
+            <img class="card-img-top" src="https://drive.google.com/thumbnail?id={{d_rb.drive_link|slice:'32:65'}}" alt="Card image cap">
+            {% endif %}
             <div class="card-body">
               <h5 class="card-title">{{ d_rb.proj_title }}</h5>
               <!-- <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p> -->
@@ -206,7 +214,11 @@
       {% for d_env in datamech_env %}
       <div class="col-lg-3">
           <div class="card mb-3" data-toggle="modal" data-target="#proj{{ d_env.proj_id }}">
+            {% if d_env.youtube_link|length > 5 %}            
             <img class="card-img-top" src="https://img.youtube.com/vi/{{d_env.youtube_link|slice:'17:'}}/0.jpg" alt="Card image cap">
+            {% else %}
+            <img class="card-img-top" src="https://drive.google.com/thumbnail?id={{d_env.drive_link|slice:'32:65'}}" alt="Card image cap">
+            {% endif %}
             <div class="card-body">
               <h5 class="card-title">{{ d_env.proj_title }}</h5>
               <!-- <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p> -->
@@ -305,7 +317,7 @@
               <p class="card-text">{{ d.proj_description }}
               </p>
               <div class="row">&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="{{d.tech_aspects}}" target="_blank"><button type="button" class="btn btn-dark btn-sm col-6">Technical aspects</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="{{d.tech_aspects}}" target="_blank"><button type="button" class="btn btn-dark btn-sm col-6">Technical aspects / poster</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
                 <!-- <button type="button" class="btn btn-primary btn-sm col-5" data-toggle="collapse" data-target="#demo">Give your feedback</button> -->
               </div>
             </div>
@@ -315,7 +327,7 @@
           <br>
           <div id="demo"  style="background-color: #e0ebeb">
             <br>
-            <center><h3>Feedback</h3></center>
+            <center><h3>Rate the project</h3></center>
             <br>
             <form method="post"> {% csrf_token %}
               <input type="hidden" name="for_proj" value="{{d.proj_title}}" >
