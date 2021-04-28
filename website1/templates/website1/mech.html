@@ -251,7 +251,11 @@
       {% for d_cw in datamech_cw %}
       <div class="col-lg-3">
           <div class="card mb-3" data-toggle="modal" data-target="#proj{{ d_cw.proj_id }}">
+            {% if d_env.youtube_link|length > 5 %}
             <img class="card-img-top" src="https://img.youtube.com/vi/{{d_cw.youtube_link|slice:'17:'}}/0.jpg" alt="Card image cap">
+            {% else %}
+            <img class="card-img-top" src="https://drive.google.com/thumbnail?id={{d_cw.drive_link|slice:'32:65'}}" alt="Card image cap">
+            {% endif %}
             <div class="card-body">
               <h5 class="card-title">{{ d_cw.proj_title }}</h5>
               <!-- <p class="card-text-bold">Traffic Signal Duration Control Using Deep Learning.</p> -->
