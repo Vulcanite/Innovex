@@ -9,7 +9,8 @@ from website1.models import Project
 from website1.models import UserModel
 from website1.models import Feedback
 
-phn=""
+user_dept1=""
+user_year1=""
 org=""
 role=""
 
@@ -20,7 +21,7 @@ def home(request):
     # global role
     #add in if to add only unique email:  not UserModel.objects.filter(user_email=request.user.email).exists()
     if request.user.is_authenticated and not UserModel.objects.filter(user_email=request.user.email).exists():
-        UserModel.objects.create(organisation=org, user_phone=phn ,user_designation=role, user_name=request.user.username, user_email=request.user.email)
+        UserModel.objects.create(organisation=org, user_designation=role, user_name=request.user.username, user_email=request.user.email,user_dept=user_dept1,user_year=user_year1)
     return render(request, "website1/index.html")
 
 @login_required(login_url='/')
@@ -149,18 +150,35 @@ def dataentry(request):
     return render(request, "website1/dataentry.html")    
 
 def edit_data(request):
-    global phn
+
     global org
     global role
+    global user_dept1
+    global user_year1
 
     if UserModel.objects.filter(user_email=request.user.email).exists():
         return redirect("/")
     elif request.method=="POST":
          
-        phn   =str(request.POST.get("mobile"))
-        org   =request.POST.get("org")
+        org   = request.POST.get("org")
         role  = request.POST.get("role")
-        print(phn,org,role,"thisss issssssssssss ")
+
+        if org == "other":
+            org   = request.POST.get("other_org")
+            user_dept1= "-"
+            user_year1 = "-"
+        elif org == "DBIT" and role == "STUDENT":
+            user_dept1 = request.POST.get("stream")
+            user_year1 = request.POST.get("year")
+        elif org == "DBIT" and role == "FACULTY":
+            user_dept1 = request.POST.get("stream")
+            user_year1 = "-"
+        else:
+            user_dept1="-"
+            user_year1="-"
+
+
+        print(org,role,user_dept1,user_year1,"thisss issssssssssss ")
 
         return redirect("/")
 

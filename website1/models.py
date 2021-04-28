@@ -54,8 +54,9 @@ class UserModel(models.Model):
     user_name        = models.CharField(max_length=100)
     user_email       = models.CharField(max_length=100, unique=True)
     user_designation = models.CharField(max_length=50, choices=DESIGNATION_CHOICES, default='STUDENT')
-    user_phone       = models.CharField(max_length=50)
     organisation     = models.CharField(max_length=100)
+    user_dept        = models.CharField(max_length=100,default="IT")
+    user_year        = models.CharField(max_length=100,default="TE")
 
     def __str__(self):
         return str(self.user_name)

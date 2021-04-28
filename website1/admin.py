@@ -40,8 +40,17 @@ class ProjectAdmin(admin.ModelAdmin):
     )
 
 
-class UserModelAdmin(admin.ModelAdmin):
+class UserModelAdmin(admin.ModelAdmin,ExportCsvMixin):
     list_display = [field.name for field in UserModel._meta.fields if True]
+    list_filter = (
+        # for ordinary fields
+        ('user_dept', DropdownFilter),
+        # for choice fields
+        # ('user_dept', ChoiceDropdownFilter),
+        # for related fields
+        # ('project_dept', RelatedDropdownFilter),
+    )
+    actions = ["export_as_csv"]
 
 class FeedbackAdmin(admin.ModelAdmin,ExportCsvMixin):
     list_display = [field.name for field in Feedback._meta.fields if True]
