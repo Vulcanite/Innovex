@@ -19,9 +19,13 @@ def home(request):
     # global phn
     # global org
     # global role
+    # global user_dept1
+    # global user_year1
+    # global org
+    # global role
     #add in if to add only unique email:  not UserModel.objects.filter(user_email=request.user.email).exists()
-    if request.user.is_authenticated and not UserModel.objects.filter(user_email=request.user.email).exists():
-        UserModel.objects.create(organisation=org, user_designation=role, user_name=request.user.username, user_email=request.user.email,user_dept=user_dept1,user_year=user_year1)
+    # if request.user.is_authenticated and not UserModel.objects.filter(user_email=request.user.email).exists():
+    #     UserModel.objects.create(organisation=org, user_designation=role, user_name=request.user.username, user_email=request.user.email,user_dept=user_dept1,user_year=user_year1)
     return render(request, "website1/index.html")
 
 @login_required(login_url='/')
@@ -176,6 +180,9 @@ def edit_data(request):
         else:
             user_dept1="-"
             user_year1="-"
+
+        if request.user.is_authenticated and not UserModel.objects.filter(user_email=request.user.email).exists():
+            UserModel.objects.create(organisation=org, user_designation=role, user_name=request.user.username, user_email=request.user.email,user_dept=user_dept1,user_year=user_year1)
 
 
         print(org,role,user_dept1,user_year1,"thisss issssssssssss ")
