@@ -52,9 +52,9 @@ class Project(models.Model):
 class UserModel(models.Model):
     user_id          = models.AutoField(primary_key=True)
     user_name        = models.CharField(max_length=100)
-    user_email       = models.CharField(max_length=100, unique=True)
-    user_designation = models.CharField(max_length=50, choices=DESIGNATION_CHOICES, default='STUDENT')
-    organisation     = models.CharField(max_length=100)
+    user_email       = models.CharField(max_length=100,unique=True)
+    user_designation = models.CharField(max_length=50,choices=DESIGNATION_CHOICES, default='STUDENT')
+    organisation     = models.CharField(max_length=100,default="DBIT")
     user_dept        = models.CharField(max_length=100,default="IT")
     user_year        = models.CharField(max_length=100,default="TE")
 
