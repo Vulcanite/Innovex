@@ -42,6 +42,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
 class UserModelAdmin(admin.ModelAdmin,ExportCsvMixin):
     list_display = [field.name for field in UserModel._meta.fields if True]
+    search_fields = ['user_email', 'user_name']
     list_filter = (
         # for ordinary fields
         ('user_dept', DropdownFilter),
