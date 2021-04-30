@@ -362,25 +362,51 @@ Wishing all the Final Year students and their guides my very best. With great pl
       <br>
         <div class="card-deck">
           <div class="card">
-            <a target="_blank" href="http://it.dbit.in/" class="stretched-link" style="text-decoration: none;color: black;">
+            {% if user.is_authenticated %}
+            <a target="_blank" href="itdept" style="text-decoration: none;color: black;">
             <img class="card-img" src="{% static 'website1/img/logo_it.png' %}" alt="Card image cap">
-          </a> 
+            </a>
+            {% else %}
+            <a target="_blank" href="{% provider_login_url 'google' %}?next=/editdata" class="stretched-link" style="text-decoration: none;color: black;">
+            <img class="card-img" src="{% static 'website1/img/logo_it.png' %}" alt="Card image cap">
+            </a>
+            {% endif %} 
           </div>
 
           <div class="card">
-            <a target="_blank" href="https://comps.dbit.in/" class="stretched-link" style="text-decoration: none;color: black;">
+            {% if user.is_authenticated %}
+            <a target="_blank" href="compsdept" style="text-decoration: none;color: black;">
             <img class="card-img" src="{% static 'website1/img/logo_comps.png' %}" alt="Card image cap">
-          </a> 
+            </a>
+            {% else %}
+            <a target="_blank" href="{% provider_login_url 'google' %}?next=/editdata" class="stretched-link" style="text-decoration: none;color: black;">
+            <img class="card-img" src="{% static 'website1/img/logo_comps.png' %}" alt="Card image cap">
+            </a>
+            {% endif %} 
           </div>
+
           <div class="card">
-            <a target="_blank" href="https://extc.dbit.in/" class="stretched-link" style="text-decoration: none;color: black;">
+            {% if user.is_authenticated %}
+            <a target="_blank" href="extcdept" style="text-decoration: none;color: black;">
             <img class="card-img" src="{% static 'website1/img/logo_extc.png' %}" alt="Card image cap">
-          </a> 
+            </a>
+            {% else %}
+            <a target="_blank" href="{% provider_login_url 'google' %}?next=/editdata" class="stretched-link" style="text-decoration: none;color: black;">
+            <img class="card-img" src="{% static 'website1/img/logo_extc.png' %}" alt="Card image cap">
+            </a>
+            {% endif %} 
           </div>
+
           <div class="card">
-            <a target="_blank" href="https://mech.dbit.in/" class="stretched-link" style="text-decoration: none;color: black;">
+            {% if user.is_authenticated %}
+            <a target="_blank" href="mechdept" style="text-decoration: none;color: black;">
             <img class="card-img" src="{% static 'website1/img/logo_mech.png' %}" alt="Card image cap">
-          </a> 
+            </a>
+            {% else %}
+            <a target="_blank" href="{% provider_login_url 'google' %}?next=/editdata" class="stretched-link" style="text-decoration: none;color: black;">
+            <img class="card-img" src="{% static 'website1/img/logo_mech.png' %}" alt="Card image cap">
+            </a>
+            {% endif %} 
           </div>
         </div>
     </div>
