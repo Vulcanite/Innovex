@@ -150,8 +150,8 @@ def extcdept(request):
         
     return render(request, "website1/extc.html",context)
 
-def dataentry(request):
-    return render(request, "website1/dataentry.html")    
+def privacypolicy(request):
+    return render(request, "website1/privacypolicy.html")    
 
 def edit_data(request):
 

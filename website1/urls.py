@@ -9,6 +9,6 @@ urlpatterns = [
     path('compsdept', views.compsdept, name='compsdept'),
     path('mechdept', views.mechdept, name='mechdept'),
     path('extcdept', views.extcdept, name='extcdept'),
-    path('dataentry', views.dataentry, name='dataentry'),
+    path('privacypolicy', views.privacypolicy, name='privacypolicy'),
     path('editdata', views.edit_data, name='editdata')
 ]
