@@ -15,6 +15,9 @@ org=""
 role=""
 
 def home(request):
+    if request.user.is_authenticated:
+        if not UserModel.objects.filter(user_email=request.user.email).exists():
+            return redirect("editdata")
     
     # global phn
     # global org
