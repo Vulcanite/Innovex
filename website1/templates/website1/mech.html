@@ -1,4 +1,5 @@
 {% load socialaccount %}
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -17,7 +18,7 @@
 
       gtag('config', 'G-ZKS4J96H6V');
     </script>
-    <link rel="stylesheet" href="https://dl.dropbox.com/s/i4cfbnhzpssw4pr/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'website1/css/bootstrap.min.css' %}" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
@@ -49,12 +50,12 @@
   
 
             <a class="navbar-brand logo" href="/"> 
-                <img src="https://dl.dropbox.com/s/o89s3r0howppzea/dbitlogo.png" width="50" height="50" class="d-inline-block align-top" alt="">
+                <img src="{% static 'website1/img/dbitlogo.png' %}" width="50" height="50" class="d-inline-block align-top" alt="">
           
             </a>
             <div class="vl" style="height: 45px; border-left: solid black;"></div>&nbsp;&nbsp;&nbsp;
             <a class="navbar-brand logo" href="/">
-                <img src="https://dl.dropbox.com/s/bz40gbg1sn8ilkc/innovLogo.png" width="40" height="40" class="d-inline-block align-top" alt="">
+                <img src="{% static 'website1/img/innovLogo.png' %}" width="40" height="40" class="d-inline-block align-top" alt="">
             INNOVEX
             </a>
 
